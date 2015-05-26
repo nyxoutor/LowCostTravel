@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LowCostTravelModelStoreContainer" CdmEntityContainer="VolsModele">
+    <EntitySetMapping Name="aeroports">
+      <EntityTypeMapping TypeName="LowCostTravelModel.aeroports">
+        <MappingFragment StoreEntitySet="aeroports">
+          <ScalarProperty Name="id_aero" ColumnName="id_aero" />
+          <ScalarProperty Name="ville_aero" ColumnName="ville_aero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="LowCostTravelModel.clients">
+        <MappingFragment StoreEntitySet="clients">
+          <ScalarProperty Name="id_clients" ColumnName="id_clients" />
+          <ScalarProperty Name="nom_clients" ColumnName="nom_clients" />
+          <ScalarProperty Name="prenom_clients" ColumnName="prenom_clients" />
+          <ScalarProperty Name="adresse_clients" ColumnName="adresse_clients" />
+          <ScalarProperty Name="cp_clients" ColumnName="cp_clients" />
+          <ScalarProperty Name="ville_clients" ColumnName="ville_clients" />
+          <ScalarProperty Name="tel_clients" ColumnName="tel_clients" />
+          <ScalarProperty Name="mail_clients" ColumnName="mail_clients" />
+          <ScalarProperty Name="password_clients" ColumnName="password_clients" />
+          <ScalarProperty Name="token_clients" ColumnName="token_clients" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="destinations">
+      <EntityTypeMapping TypeName="LowCostTravelModel.destinations">
+        <MappingFragment StoreEntitySet="destinations">
+          <ScalarProperty Name="id_desti" ColumnName="id_desti" />
+          <ScalarProperty Name="ville_desti" ColumnName="ville_desti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employe">
+      <EntityTypeMapping TypeName="LowCostTravelModel.employe">
+        <MappingFragment StoreEntitySet="employe">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservation">
+      <EntityTypeMapping TypeName="LowCostTravelModel.reservation">
+        <MappingFragment StoreEntitySet="reservation">
+          <ScalarProperty Name="id_vols" ColumnName="id_vols" />
+          <ScalarProperty Name="id_clients" ColumnName="id_clients" />
+          <ScalarProperty Name="etat_reservation" ColumnName="etat_reservation" />
+          <ScalarProperty Name="date_reservation" ColumnName="date_reservation" />
+          <ScalarProperty Name="place_reservation" ColumnName="place_reservation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vols">
+      <EntityTypeMapping TypeName="LowCostTravelModel.vols">
+        <MappingFragment StoreEntitySet="vols">
+          <ScalarProperty Name="id_vols" ColumnName="id_vols" />
+          <ScalarProperty Name="depart_vols" ColumnName="depart_vols" />
+          <ScalarProperty Name="arrivee_vols" ColumnName="arrivee_vols" />
+          <ScalarProperty Name="id_dest" ColumnName="id_dest" />
+          <ScalarProperty Name="id_aero_depart" ColumnName="id_aero_depart" />
+          <ScalarProperty Name="id_aero_arriver" ColumnName="id_aero_arriver" />
+          <ScalarProperty Name="prix_vols" ColumnName="prix_vols" />
+          <ScalarProperty Name="places_dispo_vols" ColumnName="places_dispo_vols" />
+          <ScalarProperty Name="places_vols" ColumnName="places_vols" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

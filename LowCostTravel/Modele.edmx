@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LowCostTravelModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="aeroports">
+          <Key>
+            <PropertyRef Name="id_aero" />
+          </Key>
+          <Property Name="id_aero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ville_aero" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="id_clients" />
+          </Key>
+          <Property Name="id_clients" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_clients" Type="varchar" MaxLength="50" />
+          <Property Name="prenom_clients" Type="varchar" MaxLength="50" />
+          <Property Name="adresse_clients" Type="varchar" MaxLength="100" />
+          <Property Name="cp_clients" Type="varchar" MaxLength="5" />
+          <Property Name="ville_clients" Type="varchar" MaxLength="50" />
+          <Property Name="tel_clients" Type="varchar" MaxLength="20" />
+          <Property Name="mail_clients" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="password_clients" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="token_clients" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="destinations">
+          <Key>
+            <PropertyRef Name="id_desti" />
+          </Key>
+          <Property Name="id_desti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ville_desti" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservation">
+          <Key>
+            <PropertyRef Name="id_vols" />
+            <PropertyRef Name="id_clients" />
+            <PropertyRef Name="date_reservation" />
+          </Key>
+          <Property Name="id_vols" Type="int" Nullable="false" />
+          <Property Name="id_clients" Type="int" Nullable="false" />
+          <Property Name="etat_reservation" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="date_reservation" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="place_reservation" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vols">
+          <Key>
+            <PropertyRef Name="id_vols" />
+          </Key>
+          <Property Name="id_vols" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="depart_vols" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="arrivee_vols" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="id_dest" Type="int" Nullable="false" />
+          <Property Name="id_aero_depart" Type="int" Nullable="false" />
+          <Property Name="id_aero_arriver" Type="int" Nullable="false" />
+          <Property Name="prix_vols" Type="int" Nullable="false" />
+          <Property Name="places_dispo_vols" Type="int" Nullable="false" />
+          <Property Name="places_vols" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="reservation_ibfk_3">
+          <End Role="vols" Type="Self.vols" Multiplicity="1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vols">
+              <PropertyRef Name="id_vols" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="id_vols" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reservation_ibfk_4">
+          <End Role="clients" Type="Self.clients" Multiplicity="1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="id_clients" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="id_clients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vols_ibfk_1">
+          <End Role="destinations" Type="Self.destinations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="vols" Type="Self.vols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destinations">
+              <PropertyRef Name="id_desti" />
+            </Principal>
+            <Dependent Role="vols">
+              <PropertyRef Name="id_dest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LowCostTravelModelStoreContainer">
+          <EntitySet Name="aeroports" EntityType="Self.aeroports" Schema="LowCostTravel" store:Type="Tables" />
+          <EntitySet Name="clients" EntityType="Self.clients" Schema="LowCostTravel" store:Type="Tables" />
+          <EntitySet Name="destinations" EntityType="Self.destinations" Schema="LowCostTravel" store:Type="Tables" />
+          <EntitySet Name="employe" EntityType="Self.employe" Schema="LowCostTravel" store:Type="Tables" />
+          <EntitySet Name="reservation" EntityType="Self.reservation" Schema="LowCostTravel" store:Type="Tables" />
+          <EntitySet Name="vols" EntityType="Self.vols" Schema="LowCostTravel" store:Type="Tables" />
+          <AssociationSet Name="reservation_ibfk_3" Association="Self.reservation_ibfk_3">
+            <End Role="vols" EntitySet="vols" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+          <AssociationSet Name="reservation_ibfk_4" Association="Self.reservation_ibfk_4">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+          <AssociationSet Name="vols_ibfk_1" Association="Self.vols_ibfk_1">
+            <End Role="destinations" EntitySet="destinations" />
+            <End Role="vols" EntitySet="vols" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LowCostTravelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="aeroports">
+          <Key>
+            <PropertyRef Name="id_aero" />
+          </Key>
+          <Property Name="id_aero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ville_aero" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="id_clients" />
+          </Key>
+          <Property Name="id_clients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_clients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenom_clients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adresse_clients" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cp_clients" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ville_clients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel_clients" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mail_clients" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password_clients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="token_clients" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="reservation" Relationship="Self.reservation_ibfk_4" FromRole="clients" ToRole="reservation" />
+        </EntityType>
+        <EntityType Name="destinations">
+          <Key>
+            <PropertyRef Name="id_desti" />
+          </Key>
+          <Property Name="id_desti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ville_desti" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vols" Relationship="Self.vols_ibfk_1" FromRole="destinations" ToRole="vols" />
+        </EntityType>
+        <EntityType Name="employe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservation">
+          <Key>
+            <PropertyRef Name="id_vols" />
+            <PropertyRef Name="id_clients" />
+            <PropertyRef Name="date_reservation" />
+          </Key>
+          <Property Name="id_vols" Type="Int32" Nullable="false" />
+          <Property Name="id_clients" Type="Int32" Nullable="false" />
+          <Property Name="etat_reservation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_reservation" Type="DateTime" Nullable="false" />
+          <Property Name="place_reservation" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="clients" Relationship="Self.reservation_ibfk_4" FromRole="reservation" ToRole="clients" />
+          <NavigationProperty Name="vols" Relationship="Self.reservation_ibfk_3" FromRole="reservation" ToRole="vols" />
+        </EntityType>
+        <EntityType Name="vols">
+          <Key>
+            <PropertyRef Name="id_vols" />
+          </Key>
+          <Property Name="id_vols" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="depart_vols" Type="DateTime" Nullable="false" />
+          <Property Name="arrivee_vols" Type="DateTime" Nullable="false" />
+          <Property Name="id_dest" Type="Int32" Nullable="false" />
+          <Property Name="id_aero_depart" Type="Int32" Nullable="false" />
+          <Property Name="id_aero_arriver" Type="Int32" Nullable="false" />
+          <Property Name="prix_vols" Type="Int32" Nullable="false" />
+          <Property Name="places_dispo_vols" Type="Int32" Nullable="false" />
+          <Property Name="places_vols" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="destinations" Relationship="Self.vols_ibfk_1" FromRole="vols" ToRole="destinations" />
+          <NavigationProperty Name="reservation" Relationship="Self.reservation_ibfk_3" FromRole="vols" ToRole="reservation" />
+        </EntityType>
+        <Association Name="reservation_ibfk_4">
+          <End Role="clients" Type="Self.clients" Multiplicity="1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="id_clients" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="id_clients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vols_ibfk_1">
+          <End Role="destinations" Type="Self.destinations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="vols" Type="Self.vols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destinations">
+              <PropertyRef Name="id_desti" />
+            </Principal>
+            <Dependent Role="vols">
+              <PropertyRef Name="id_dest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reservation_ibfk_3">
+          <End Role="vols" Type="Self.vols" Multiplicity="1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vols">
+              <PropertyRef Name="id_vols" />
+            </Principal>
+            <Dependent Role="reservation">
+              <PropertyRef Name="id_vols" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VolsModele" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aeroports" EntityType="Self.aeroports" />
+          <EntitySet Name="clients" EntityType="Self.clients" />
+          <EntitySet Name="destinations" EntityType="Self.destinations" />
+          <EntitySet Name="employe" EntityType="Self.employe" />
+          <EntitySet Name="reservation" EntityType="Self.reservation" />
+          <EntitySet Name="vols" EntityType="Self.vols" />
+          <AssociationSet Name="reservation_ibfk_4" Association="Self.reservation_ibfk_4">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+          <AssociationSet Name="vols_ibfk_1" Association="Self.vols_ibfk_1">
+            <End Role="destinations" EntitySet="destinations" />
+            <End Role="vols" EntitySet="vols" />
+          </AssociationSet>
+          <AssociationSet Name="reservation_ibfk_3" Association="Self.reservation_ibfk_3">
+            <End Role="vols" EntitySet="vols" />
+            <End Role="reservation" EntitySet="reservation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LowCostTravelModelStoreContainer" CdmEntityContainer="VolsModele">
+          <EntitySetMapping Name="aeroports">
+            <EntityTypeMapping TypeName="LowCostTravelModel.aeroports">
+              <MappingFragment StoreEntitySet="aeroports">
+                <ScalarProperty Name="id_aero" ColumnName="id_aero" />
+                <ScalarProperty Name="ville_aero" ColumnName="ville_aero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="LowCostTravelModel.clients">
+              <MappingFragment StoreEntitySet="clients">
+                <ScalarProperty Name="id_clients" ColumnName="id_clients" />
+                <ScalarProperty Name="nom_clients" ColumnName="nom_clients" />
+                <ScalarProperty Name="prenom_clients" ColumnName="prenom_clients" />
+                <ScalarProperty Name="adresse_clients" ColumnName="adresse_clients" />
+                <ScalarProperty Name="cp_clients" ColumnName="cp_clients" />
+                <ScalarProperty Name="ville_clients" ColumnName="ville_clients" />
+                <ScalarProperty Name="tel_clients" ColumnName="tel_clients" />
+                <ScalarProperty Name="mail_clients" ColumnName="mail_clients" />
+                <ScalarProperty Name="password_clients" ColumnName="password_clients" />
+                <ScalarProperty Name="token_clients" ColumnName="token_clients" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="destinations">
+            <EntityTypeMapping TypeName="LowCostTravelModel.destinations">
+              <MappingFragment StoreEntitySet="destinations">
+                <ScalarProperty Name="id_desti" ColumnName="id_desti" />
+                <ScalarProperty Name="ville_desti" ColumnName="ville_desti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employe">
+            <EntityTypeMapping TypeName="LowCostTravelModel.employe">
+              <MappingFragment StoreEntitySet="employe">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservation">
+            <EntityTypeMapping TypeName="LowCostTravelModel.reservation">
+              <MappingFragment StoreEntitySet="reservation">
+                <ScalarProperty Name="id_vols" ColumnName="id_vols" />
+                <ScalarProperty Name="id_clients" ColumnName="id_clients" />
+                <ScalarProperty Name="etat_reservation" ColumnName="etat_reservation" />
+                <ScalarProperty Name="date_reservation" ColumnName="date_reservation" />
+                <ScalarProperty Name="place_reservation" ColumnName="place_reservation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vols">
+            <EntityTypeMapping TypeName="LowCostTravelModel.vols">
+              <MappingFragment StoreEntitySet="vols">
+                <ScalarProperty Name="id_vols" ColumnName="id_vols" />
+                <ScalarProperty Name="depart_vols" ColumnName="depart_vols" />
+                <ScalarProperty Name="arrivee_vols" ColumnName="arrivee_vols" />
+                <ScalarProperty Name="id_dest" ColumnName="id_dest" />
+                <ScalarProperty Name="id_aero_depart" ColumnName="id_aero_depart" />
+                <ScalarProperty Name="id_aero_arriver" ColumnName="id_aero_arriver" />
+                <ScalarProperty Name="prix_vols" ColumnName="prix_vols" />
+                <ScalarProperty Name="places_dispo_vols" ColumnName="places_dispo_vols" />
+                <ScalarProperty Name="places_vols" ColumnName="places_vols" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
