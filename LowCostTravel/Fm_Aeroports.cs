@@ -28,6 +28,7 @@ namespace LowCostTravel
             Fm_Modif_Aeroport modifAeroports = new Fm_Modif_Aeroport(bd, aeroModifier);
             modifAeroports.ShowDialog();
             Bs.DataSource = bd.aeroports.ToList();
+            
         }
 
         private void Fm_Aeroports_Load(object sender, EventArgs e)

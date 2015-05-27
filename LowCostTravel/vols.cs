@@ -28,8 +28,22 @@ namespace LowCostTravel
         public int prix_vols { get; set; }
         public int places_dispo_vols { get; set; }
         public int places_vols { get; set; }
+
+
+
+
+        /*public String depart { get {return depart; } set { depart = depart_vols.ToString(); } }
+        public String arrivee { get { return arrivee; } set { arrivee = arrivee_vols.ToString(); } }*/
     
         public virtual destinations destinations { get; set; }
+
+        /*private string desti;
+        public string Destination { get { return this.desti; } set { desti = this.destinations.ville_desti; } }*/
+        public string Destination { get { return this.destinations.ville_desti; } }
+
+
+        private VolsModele bd;
+        public string Aero_Depart { get { ;} }
         public virtual ICollection<reservation> reservation { get; set; }
     }
 }

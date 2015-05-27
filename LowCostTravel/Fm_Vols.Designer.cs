@@ -45,16 +45,15 @@
             this.Btn_Modifier = new System.Windows.Forms.Button();
             this.volsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depart_vols = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arrivee_vols = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departvolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.arriveevolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placesdispovolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placesvolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Destination = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -119,16 +118,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
+            this.depart_vols,
+            this.arrivee_vols,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.departvolsDataGridViewTextBoxColumn,
-            this.arriveevolsDataGridViewTextBoxColumn,
             this.placesdispovolsDataGridViewTextBoxColumn,
             this.placesvolsDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.Destination});
             this.dataGridView1.DataSource = this.volsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(166, 95);
             this.dataGridView1.Name = "dataGridView1";
@@ -210,6 +208,18 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "id_vols";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
+            // depart_vols
+            // 
+            this.depart_vols.DataPropertyName = "depart_vols";
+            this.depart_vols.HeaderText = "depart_vols";
+            this.depart_vols.Name = "depart_vols";
+            // 
+            // arrivee_vols
+            // 
+            this.arrivee_vols.DataPropertyName = "arrivee_vols";
+            this.arrivee_vols.HeaderText = "arrivee_vols";
+            this.arrivee_vols.Name = "arrivee_vols";
+            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "id_dest";
@@ -234,18 +244,6 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "prix_vols";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // departvolsDataGridViewTextBoxColumn
-            // 
-            this.departvolsDataGridViewTextBoxColumn.DataPropertyName = "depart_vols";
-            this.departvolsDataGridViewTextBoxColumn.HeaderText = "depart_vols";
-            this.departvolsDataGridViewTextBoxColumn.Name = "departvolsDataGridViewTextBoxColumn";
-            // 
-            // arriveevolsDataGridViewTextBoxColumn
-            // 
-            this.arriveevolsDataGridViewTextBoxColumn.DataPropertyName = "arrivee_vols";
-            this.arriveevolsDataGridViewTextBoxColumn.HeaderText = "arrivee_vols";
-            this.arriveevolsDataGridViewTextBoxColumn.Name = "arriveevolsDataGridViewTextBoxColumn";
-            // 
             // placesdispovolsDataGridViewTextBoxColumn
             // 
             this.placesdispovolsDataGridViewTextBoxColumn.DataPropertyName = "places_dispo_vols";
@@ -258,17 +256,11 @@
             this.placesvolsDataGridViewTextBoxColumn.HeaderText = "places_vols";
             this.placesvolsDataGridViewTextBoxColumn.Name = "placesvolsDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn6
+            // Destination
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "destinations";
-            this.dataGridViewTextBoxColumn6.HeaderText = "destinations";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "clients";
-            this.dataGridViewTextBoxColumn7.HeaderText = "clients";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.Destination.DataPropertyName = "Destination";
+            this.Destination.HeaderText = "Destination";
+            this.Destination.Name = "Destination";
             // 
             // Fm_Vols
             // 
@@ -325,17 +317,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prixvolsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clientsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.BindingSource volsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn depart_vols;
+        private System.Windows.Forms.DataGridViewTextBoxColumn arrivee_vols;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn departvolsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn arriveevolsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placesdispovolsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placesvolsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.BindingSource volsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Destination;
     }
 }

@@ -17,7 +17,7 @@ namespace LowCostTravel
         {
             InitializeComponent();
             bd = p_bd;
-            Bs.DataSource = bd.clients.ToList();
+            clientsBindingSource.DataSource = bd.clients.ToList();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -70,6 +70,11 @@ namespace LowCostTravel
             Fm_Aeroports aeroports = new Fm_Aeroports(bd);
             aeroports.Show();
             this.Hide();
+        }
+
+        private void Fm_Clients_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

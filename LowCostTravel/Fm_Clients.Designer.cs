@@ -36,7 +36,6 @@
             this.Bt_Vols = new System.Windows.Forms.Button();
             this.Lb_Clients = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Bs = new System.Windows.Forms.BindingSource(this.components);
             this.Bt_Debut = new System.Windows.Forms.Button();
             this.Bt_Precedent = new System.Windows.Forms.Button();
             this.Bt_Suivant = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@
             this.passwordclientsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tokenclientsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,11 +63,8 @@
             this.villeclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tokenclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.volsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Bs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Lb_Choix
@@ -138,11 +135,8 @@
             this.cpclientsDataGridViewTextBoxColumn1,
             this.villeclientsDataGridViewTextBoxColumn1,
             this.telclientsDataGridViewTextBoxColumn1,
-            this.mailclientsDataGridViewTextBoxColumn1,
-            this.passwordclientsDataGridViewTextBoxColumn1,
-            this.tokenclientsDataGridViewTextBoxColumn1,
-            this.volsDataGridViewTextBoxColumn1});
-            this.dataGridView1.DataSource = this.Bs;
+            this.mailclientsDataGridViewTextBoxColumn1});
+            this.dataGridView1.DataSource = this.clientsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(157, 101);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -150,10 +144,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(292, 217);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // Bs
-            // 
-            this.Bs.DataSource = typeof(LowCostTravel.clients);
             // 
             // Bt_Debut
             // 
@@ -299,6 +289,10 @@
             this.volsDataGridViewTextBoxColumn.Name = "volsDataGridViewTextBoxColumn";
             this.volsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // clientsBindingSource
+            // 
+            this.clientsBindingSource.DataSource = typeof(LowCostTravel.clients);
+            // 
             // idclientsDataGridViewTextBoxColumn1
             // 
             this.idclientsDataGridViewTextBoxColumn1.DataPropertyName = "id_clients";
@@ -355,27 +349,6 @@
             this.mailclientsDataGridViewTextBoxColumn1.Name = "mailclientsDataGridViewTextBoxColumn1";
             this.mailclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // passwordclientsDataGridViewTextBoxColumn1
-            // 
-            this.passwordclientsDataGridViewTextBoxColumn1.DataPropertyName = "password_clients";
-            this.passwordclientsDataGridViewTextBoxColumn1.HeaderText = "password_clients";
-            this.passwordclientsDataGridViewTextBoxColumn1.Name = "passwordclientsDataGridViewTextBoxColumn1";
-            this.passwordclientsDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // tokenclientsDataGridViewTextBoxColumn1
-            // 
-            this.tokenclientsDataGridViewTextBoxColumn1.DataPropertyName = "token_clients";
-            this.tokenclientsDataGridViewTextBoxColumn1.HeaderText = "token_clients";
-            this.tokenclientsDataGridViewTextBoxColumn1.Name = "tokenclientsDataGridViewTextBoxColumn1";
-            this.tokenclientsDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // volsDataGridViewTextBoxColumn1
-            // 
-            this.volsDataGridViewTextBoxColumn1.DataPropertyName = "vols";
-            this.volsDataGridViewTextBoxColumn1.HeaderText = "vols";
-            this.volsDataGridViewTextBoxColumn1.Name = "volsDataGridViewTextBoxColumn1";
-            this.volsDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // Fm_Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,8 +370,9 @@
             this.Controls.Add(this.Lb_Choix);
             this.Name = "Fm_Clients";
             this.Text = "Fm_Clients";
+            this.Load += new System.EventHandler(this.Fm_Clients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Bs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,7 +405,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordclientsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tokenclientsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn volsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource Bs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volsDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource clientsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idclientsDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomclientsDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenomclientsDataGridViewTextBoxColumn1;
@@ -440,8 +415,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn villeclientsDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn telclientsDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mailclientsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordclientsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tokenclientsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn volsDataGridViewTextBoxColumn1;
     }
 }
