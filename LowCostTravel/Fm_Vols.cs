@@ -80,5 +80,12 @@ namespace LowCostTravel
 
             volsBindingSource.DataSource = bd.vols.ToList();
         }
+
+        private void Btn_Ajouter_Click(object sender, EventArgs e)
+        {
+            Fm_Add_Vols addVols = new Fm_Add_Vols(bd);
+            addVols.ShowDialog();
+            volsBindingSource.DataSource = bd.vols.ToList();
+        }
     }
 }
