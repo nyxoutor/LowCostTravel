@@ -62,7 +62,7 @@ namespace LowCostTravel
         {
             int index = dataGridView1.Rows.Count;
             dataGridView1.Rows[index - 1].Selected = true;
-            dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
+            dataGridView1.CurrentCell = dataGridView1.Rows[index-1].Cells[0];
         }
 
         private void Bt_Aeroports_Click(object sender, EventArgs e)

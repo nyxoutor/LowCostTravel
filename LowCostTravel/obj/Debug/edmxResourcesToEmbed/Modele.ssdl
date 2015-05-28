@@ -101,6 +101,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="vols_ibfk_2">
+    <End Role="aeroports" Type="Self.aeroports" Multiplicity="1" />
+    <End Role="vols" Type="Self.vols" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeroports">
+        <PropertyRef Name="id_aero" />
+      </Principal>
+      <Dependent Role="vols">
+        <PropertyRef Name="id_aero_depart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vols_ibfk_3">
+    <End Role="aeroports" Type="Self.aeroports" Multiplicity="1" />
+    <End Role="vols" Type="Self.vols" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeroports">
+        <PropertyRef Name="id_aero" />
+      </Principal>
+      <Dependent Role="vols">
+        <PropertyRef Name="id_aero_arriver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="LowCostTravelModelStoreContainer">
     <EntitySet Name="aeroports" EntityType="Self.aeroports" Schema="LowCostTravel" store:Type="Tables" />
     <EntitySet Name="clients" EntityType="Self.clients" Schema="LowCostTravel" store:Type="Tables" />
@@ -118,6 +142,14 @@
     </AssociationSet>
     <AssociationSet Name="vols_ibfk_1" Association="Self.vols_ibfk_1">
       <End Role="destinations" EntitySet="destinations" />
+      <End Role="vols" EntitySet="vols" />
+    </AssociationSet>
+    <AssociationSet Name="vols_ibfk_2" Association="Self.vols_ibfk_2">
+      <End Role="aeroports" EntitySet="aeroports" />
+      <End Role="vols" EntitySet="vols" />
+    </AssociationSet>
+    <AssociationSet Name="vols_ibfk_3" Association="Self.vols_ibfk_3">
+      <End Role="aeroports" EntitySet="aeroports" />
       <End Role="vols" EntitySet="vols" />
     </AssociationSet>
   </EntityContainer>

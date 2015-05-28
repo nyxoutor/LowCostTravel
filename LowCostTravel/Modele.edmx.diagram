@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="29c7f807272c42a59dd245b562e96026" Name="Diagram1">
-        <EntityTypeShape EntityType="LowCostTravelModel.aeroports" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LowCostTravelModel.aeroports" Width="1.5" PointX="0.625" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="LowCostTravelModel.clients" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="LowCostTravelModel.destinations" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LowCostTravelModel.employe" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
@@ -14,6 +14,8 @@
         <AssociationConnector Association="LowCostTravelModel.reservation_ibfk_4" ManuallyRouted="false" />
         <AssociationConnector Association="LowCostTravelModel.vols_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="LowCostTravelModel.reservation_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="LowCostTravelModel.vols_ibfk_2" />
+        <AssociationConnector Association="LowCostTravelModel.vols_ibfk_3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

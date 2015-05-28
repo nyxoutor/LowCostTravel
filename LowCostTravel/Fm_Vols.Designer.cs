@@ -43,17 +43,16 @@
             this.Btn_Supprimer = new System.Windows.Forms.Button();
             this.Btn_Ajouter = new System.Windows.Forms.Button();
             this.Btn_Modifier = new System.Windows.Forms.Button();
-            this.volsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aero_Dep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aero_Arr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depart_vols = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arrivee_vols = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Destination = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placesdispovolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placesvolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Destination = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +105,7 @@
             // Lb_Vols
             // 
             this.Lb_Vols.AutoSize = true;
-            this.Lb_Vols.Location = new System.Drawing.Point(292, 79);
+            this.Lb_Vols.Location = new System.Drawing.Point(292, 69);
             this.Lb_Vols.Name = "Lb_Vols";
             this.Lb_Vols.Size = new System.Drawing.Size(77, 13);
             this.Lb_Vols.TabIndex = 6;
@@ -118,19 +117,21 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
+            this.Aero_Dep,
+            this.Aero_Arr,
             this.depart_vols,
             this.arrivee_vols,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.placesdispovolsDataGridViewTextBoxColumn,
             this.placesvolsDataGridViewTextBoxColumn,
             this.Destination});
             this.dataGridView1.DataSource = this.volsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(166, 95);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 95);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(341, 217);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(587, 217);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -142,6 +143,7 @@
             this.Btn_Debut.TabIndex = 8;
             this.Btn_Debut.Text = "<<";
             this.Btn_Debut.UseVisualStyleBackColor = true;
+            this.Btn_Debut.Click += new System.EventHandler(this.Btn_Debut_Click);
             // 
             // Btn_Precedent
             // 
@@ -151,6 +153,7 @@
             this.Btn_Precedent.TabIndex = 9;
             this.Btn_Precedent.Text = "<";
             this.Btn_Precedent.UseVisualStyleBackColor = true;
+            this.Btn_Precedent.Click += new System.EventHandler(this.Btn_Precedent_Click);
             // 
             // Btn_Suivant
             // 
@@ -160,6 +163,7 @@
             this.Btn_Suivant.TabIndex = 10;
             this.Btn_Suivant.Text = ">";
             this.Btn_Suivant.UseVisualStyleBackColor = true;
+            this.Btn_Suivant.Click += new System.EventHandler(this.Btn_Suivant_Click);
             // 
             // Btn_Fin
             // 
@@ -179,6 +183,7 @@
             this.Btn_Supprimer.TabIndex = 12;
             this.Btn_Supprimer.Text = "-";
             this.Btn_Supprimer.UseVisualStyleBackColor = true;
+            this.Btn_Supprimer.Click += new System.EventHandler(this.Btn_Supprimer_Click);
             // 
             // Btn_Ajouter
             // 
@@ -198,69 +203,72 @@
             this.Btn_Modifier.Text = "Modifier";
             this.Btn_Modifier.UseVisualStyleBackColor = true;
             // 
-            // volsBindingSource
+            // Aero_Dep
             // 
-            this.volsBindingSource.DataSource = typeof(LowCostTravel.vols);
+            this.Aero_Dep.DataPropertyName = "Aero_Dep";
+            this.Aero_Dep.HeaderText = "Aeroport de départ";
+            this.Aero_Dep.Name = "Aero_Dep";
+            this.Aero_Dep.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // Aero_Arr
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_vols";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id_vols";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.Aero_Arr.DataPropertyName = "Aero_Arr";
+            this.Aero_Arr.HeaderText = "Aéroport d\'arrivée";
+            this.Aero_Arr.Name = "Aero_Arr";
+            this.Aero_Arr.ReadOnly = true;
             // 
             // depart_vols
             // 
             this.depart_vols.DataPropertyName = "depart_vols";
-            this.depart_vols.HeaderText = "depart_vols";
+            this.depart_vols.HeaderText = "Départ";
             this.depart_vols.Name = "depart_vols";
+            this.depart_vols.ReadOnly = true;
             // 
             // arrivee_vols
             // 
             this.arrivee_vols.DataPropertyName = "arrivee_vols";
-            this.arrivee_vols.HeaderText = "arrivee_vols";
+            this.arrivee_vols.HeaderText = "Arrivée";
             this.arrivee_vols.Name = "arrivee_vols";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_dest";
-            this.dataGridViewTextBoxColumn2.HeaderText = "id_dest";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "id_aero_depart";
-            this.dataGridViewTextBoxColumn3.HeaderText = "id_aero_depart";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "id_aero_arriver";
-            this.dataGridViewTextBoxColumn4.HeaderText = "id_aero_arriver";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "prix_vols";
-            this.dataGridViewTextBoxColumn5.HeaderText = "prix_vols";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // placesdispovolsDataGridViewTextBoxColumn
-            // 
-            this.placesdispovolsDataGridViewTextBoxColumn.DataPropertyName = "places_dispo_vols";
-            this.placesdispovolsDataGridViewTextBoxColumn.HeaderText = "places_dispo_vols";
-            this.placesdispovolsDataGridViewTextBoxColumn.Name = "placesdispovolsDataGridViewTextBoxColumn";
-            // 
-            // placesvolsDataGridViewTextBoxColumn
-            // 
-            this.placesvolsDataGridViewTextBoxColumn.DataPropertyName = "places_vols";
-            this.placesvolsDataGridViewTextBoxColumn.HeaderText = "places_vols";
-            this.placesvolsDataGridViewTextBoxColumn.Name = "placesvolsDataGridViewTextBoxColumn";
+            this.arrivee_vols.ReadOnly = true;
             // 
             // Destination
             // 
             this.Destination.DataPropertyName = "Destination";
             this.Destination.HeaderText = "Destination";
             this.Destination.Name = "Destination";
+            this.Destination.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_vols";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "prix_vols";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Prix";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // placesdispovolsDataGridViewTextBoxColumn
+            // 
+            this.placesdispovolsDataGridViewTextBoxColumn.DataPropertyName = "places_dispo_vols";
+            this.placesdispovolsDataGridViewTextBoxColumn.HeaderText = "Places disponibles";
+            this.placesdispovolsDataGridViewTextBoxColumn.Name = "placesdispovolsDataGridViewTextBoxColumn";
+            this.placesdispovolsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // placesvolsDataGridViewTextBoxColumn
+            // 
+            this.placesvolsDataGridViewTextBoxColumn.DataPropertyName = "places_vols";
+            this.placesvolsDataGridViewTextBoxColumn.HeaderText = "Places Totales";
+            this.placesvolsDataGridViewTextBoxColumn.Name = "placesvolsDataGridViewTextBoxColumn";
+            this.placesvolsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // volsBindingSource
+            // 
+            this.volsBindingSource.DataSource = typeof(LowCostTravel.vols);
             // 
             // Fm_Vols
             // 
@@ -320,11 +328,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.BindingSource volsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aero_Dep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aero_Arr;
         private System.Windows.Forms.DataGridViewTextBoxColumn depart_vols;
         private System.Windows.Forms.DataGridViewTextBoxColumn arrivee_vols;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn placesdispovolsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placesvolsDataGridViewTextBoxColumn;
