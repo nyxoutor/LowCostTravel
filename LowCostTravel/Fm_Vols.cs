@@ -87,5 +87,14 @@ namespace LowCostTravel
             addVols.ShowDialog();
             volsBindingSource.DataSource = bd.vols.ToList();
         }
+
+        private void Btn_Modifier_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt16(dataGridView1.CurrentRow.Cells[0].Value);
+            vols volModif = bd.vols.Find(id);
+            Fm_Modif__Vols volModifier = new Fm_Modif__Vols(bd, volModif);
+            volModifier.ShowDialog();
+            volsBindingSource.DataSource = bd.aeroports.ToList();
+        }
     }
 }

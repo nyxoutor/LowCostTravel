@@ -270,6 +270,7 @@
             this.Btn_Modifier.TabIndex = 14;
             this.Btn_Modifier.Text = "Modifier";
             this.Btn_Modifier.UseVisualStyleBackColor = true;
+            this.Btn_Modifier.Click += new System.EventHandler(this.Btn_Modifier_Click);
             // 
             // Fm_Vols
             // 
