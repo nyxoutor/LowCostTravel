@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="LowCostTravelModelStoreContainer" CdmEntityContainer="VolsModele">
+  <EntityContainerMapping StorageEntityContainer="LowCostTravelModelStoreContainer" CdmEntityContainer="SoldVol">
     <EntitySetMapping Name="aeroports">
       <EntityTypeMapping TypeName="LowCostTravelModel.aeroports">
         <MappingFragment StoreEntitySet="aeroports">
@@ -25,18 +25,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="destinations">
-      <EntityTypeMapping TypeName="LowCostTravelModel.destinations">
-        <MappingFragment StoreEntitySet="destinations">
-          <ScalarProperty Name="id_desti" ColumnName="id_desti" />
-          <ScalarProperty Name="ville_desti" ColumnName="ville_desti" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="employe">
       <EntityTypeMapping TypeName="LowCostTravelModel.employe">
         <MappingFragment StoreEntitySet="employe">
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
           <ScalarProperty Name="login" ColumnName="login" />
           <ScalarProperty Name="password" ColumnName="password" />
         </MappingFragment>
@@ -59,7 +53,6 @@
           <ScalarProperty Name="id_vols" ColumnName="id_vols" />
           <ScalarProperty Name="depart_vols" ColumnName="depart_vols" />
           <ScalarProperty Name="arrivee_vols" ColumnName="arrivee_vols" />
-          <ScalarProperty Name="id_dest" ColumnName="id_dest" />
           <ScalarProperty Name="id_aero_depart" ColumnName="id_aero_depart" />
           <ScalarProperty Name="id_aero_arriver" ColumnName="id_aero_arriver" />
           <ScalarProperty Name="prix_vols" ColumnName="prix_vols" />

@@ -58,9 +58,6 @@
     <Compile Include="clients.cs">
       <DependentUpon>Modele.tt</DependentUpon>
     </Compile>
-    <Compile Include="destinations.cs">
-      <DependentUpon>Modele.tt</DependentUpon>
-    </Compile>
     <Compile Include="employe.cs">
       <DependentUpon>Modele.tt</DependentUpon>
     </Compile>
@@ -69,6 +66,12 @@
     </Compile>
     <Compile Include="Fm_Add_Aeroport.Designer.cs">
       <DependentUpon>Fm_Add_Aeroport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fm_Add_Employe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_Add_Employe.Designer.cs">
+      <DependentUpon>Fm_Add_Employe.cs</DependentUpon>
     </Compile>
     <Compile Include="Fm_Add_Vols.cs">
       <SubType>Form</SubType>
@@ -87,12 +90,6 @@
     </Compile>
     <Compile Include="Fm_Clients.Designer.cs">
       <DependentUpon>Fm_Clients.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fm_Destinations.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Fm_Destinations.Designer.cs">
-      <DependentUpon>Fm_Destinations.cs</DependentUpon>
     </Compile>
     <Compile Include="Fm_Menu.cs">
       <SubType>Form</SubType>
@@ -156,6 +153,9 @@
     <EmbeddedResource Include="Fm_Add_Aeroport.resx">
       <DependentUpon>Fm_Add_Aeroport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fm_Add_Employe.resx">
+      <DependentUpon>Fm_Add_Employe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fm_Add_Vols.resx">
       <DependentUpon>Fm_Add_Vols.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Modif_Aeroport.resx">
       <DependentUpon>Fm_Modif_Aeroport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fm_Reservations.resx">
+      <DependentUpon>Fm_Reservations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Vols.resx">
       <DependentUpon>Fm_Vols.cs</DependentUpon>
@@ -209,6 +212,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\aeroports.datasource" />
     <None Include="Properties\DataSources\clients.datasource" />
+    <None Include="Properties\DataSources\reservation.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

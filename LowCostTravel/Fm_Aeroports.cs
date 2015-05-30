@@ -12,8 +12,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Aeroports : Form
     {
-        private VolsModele bd;
-        public Fm_Aeroports(VolsModele p_bd)
+        private SoldVol bd;
+        public Fm_Aeroports(SoldVol p_bd)
         {
             InitializeComponent();
             bd = p_bd;
@@ -101,6 +101,18 @@ namespace LowCostTravel
             Fm_Clients clients = new Fm_Clients(bd);
             clients.Show();
             this.Hide();
+        }
+
+        private void Btn_Vols_Click(object sender, EventArgs e)
+        {
+            Fm_Vols vols = new Fm_Vols(bd);
+            vols.Show();
+            this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

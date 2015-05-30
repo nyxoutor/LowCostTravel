@@ -22,22 +22,18 @@ namespace LowCostTravel
         public int id_vols { get; set; }
         public System.DateTime depart_vols { get; set; }
         public System.DateTime arrivee_vols { get; set; }
-        public int id_dest { get; set; }
         public int id_aero_depart { get; set; }
         public int id_aero_arriver { get; set; }
         public int prix_vols { get; set; }
         public int places_dispo_vols { get; set; }
         public int places_vols { get; set; }
     
-        public virtual destinations destinations { get; set; }
-        public virtual ICollection<reservation> reservation { get; set; }
         public virtual aeroports aeroports { get; set; }
         public virtual aeroports aeroports1 { get; set; }
+        public virtual ICollection<reservation> reservation { get; set; }
 
         public string Aero_Dep { get { return this.aeroports.ville_aero; } }
         public string Aero_Arr { get { return this.aeroports1.ville_aero; } }
 
-
-        public string Destination { get { return this.destinations.ville_desti; } }
     }
 }

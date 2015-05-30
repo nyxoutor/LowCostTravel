@@ -12,8 +12,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Clients : Form
     {
-        private VolsModele bd;
-        public Fm_Clients(VolsModele p_bd)
+        private SoldVol bd;
+        public Fm_Clients(SoldVol p_bd)
         {
             InitializeComponent();
             bd = p_bd;
@@ -75,6 +75,17 @@ namespace LowCostTravel
         private void Fm_Clients_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Bt_Supprimer_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt16(dataGridView1.CurrentRow.Cells[0].Value);
+            clients clientToDelete = bd.clients.Find(id);
+            bd.clients.Remove(clientToDelete);
+            bd.SaveChanges();
+
+
+            clientsBindingSource.DataSource = bd.clients.ToList();
         }
     }
 }

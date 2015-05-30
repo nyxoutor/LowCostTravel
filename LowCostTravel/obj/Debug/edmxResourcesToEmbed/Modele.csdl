@@ -6,8 +6,8 @@
     </Key>
     <Property Name="id_aero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ville_aero" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="vols" Relationship="LowCostTravelModel.vols_ibfk_2" FromRole="aeroports" ToRole="vols" />
-    <NavigationProperty Name="vols1" Relationship="LowCostTravelModel.vols_ibfk_3" FromRole="aeroports" ToRole="vols" />
+    <NavigationProperty Name="vols" Relationship="Self.vols_ibfk_2" FromRole="aeroports" ToRole="vols" />
+    <NavigationProperty Name="vols1" Relationship="Self.vols_ibfk_3" FromRole="aeroports" ToRole="vols" />
   </EntityType>
   <EntityType Name="clients">
     <Key>
@@ -25,19 +25,13 @@
     <Property Name="token_clients" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="reservation" Relationship="Self.reservation_ibfk_4" FromRole="clients" ToRole="reservation" />
   </EntityType>
-  <EntityType Name="destinations">
-    <Key>
-      <PropertyRef Name="id_desti" />
-    </Key>
-    <Property Name="id_desti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ville_desti" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="vols" Relationship="Self.vols_ibfk_1" FromRole="destinations" ToRole="vols" />
-  </EntityType>
   <EntityType Name="employe">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="login" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
@@ -62,17 +56,39 @@
     <Property Name="id_vols" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="depart_vols" Type="DateTime" Nullable="false" />
     <Property Name="arrivee_vols" Type="DateTime" Nullable="false" />
-    <Property Name="id_dest" Type="Int32" Nullable="false" />
     <Property Name="id_aero_depart" Type="Int32" Nullable="false" />
     <Property Name="id_aero_arriver" Type="Int32" Nullable="false" />
     <Property Name="prix_vols" Type="Int32" Nullable="false" />
     <Property Name="places_dispo_vols" Type="Int32" Nullable="false" />
     <Property Name="places_vols" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="destinations" Relationship="Self.vols_ibfk_1" FromRole="vols" ToRole="destinations" />
+    <NavigationProperty Name="aeroports" Relationship="Self.vols_ibfk_2" FromRole="vols" ToRole="aeroports" />
+    <NavigationProperty Name="aeroports1" Relationship="Self.vols_ibfk_3" FromRole="vols" ToRole="aeroports" />
     <NavigationProperty Name="reservation" Relationship="Self.reservation_ibfk_3" FromRole="vols" ToRole="reservation" />
-    <NavigationProperty Name="aeroports" Relationship="LowCostTravelModel.vols_ibfk_2" FromRole="vols" ToRole="aeroports" />
-    <NavigationProperty Name="aeroports1" Relationship="LowCostTravelModel.vols_ibfk_3" FromRole="vols" ToRole="aeroports" />
   </EntityType>
+  <Association Name="vols_ibfk_2">
+    <End Role="aeroports" Type="Self.aeroports" Multiplicity="1" />
+    <End Role="vols" Type="Self.vols" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeroports">
+        <PropertyRef Name="id_aero" />
+      </Principal>
+      <Dependent Role="vols">
+        <PropertyRef Name="id_aero_depart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vols_ibfk_3">
+    <End Role="aeroports" Type="Self.aeroports" Multiplicity="1" />
+    <End Role="vols" Type="Self.vols" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeroports">
+        <PropertyRef Name="id_aero" />
+      </Principal>
+      <Dependent Role="vols">
+        <PropertyRef Name="id_aero_arriver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="reservation_ibfk_4">
     <End Role="clients" Type="Self.clients" Multiplicity="1" />
     <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
@@ -82,20 +98,6 @@
       </Principal>
       <Dependent Role="reservation">
         <PropertyRef Name="id_clients" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="vols_ibfk_1">
-    <End Role="destinations" Type="Self.destinations" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="vols" Type="Self.vols" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="destinations">
-        <PropertyRef Name="id_desti" />
-      </Principal>
-      <Dependent Role="vols">
-        <PropertyRef Name="id_dest" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -111,56 +113,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="VolsModele" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="SoldVol" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="aeroports" EntityType="Self.aeroports" />
     <EntitySet Name="clients" EntityType="Self.clients" />
-    <EntitySet Name="destinations" EntityType="Self.destinations" />
     <EntitySet Name="employe" EntityType="Self.employe" />
     <EntitySet Name="reservation" EntityType="Self.reservation" />
     <EntitySet Name="vols" EntityType="Self.vols" />
+    <AssociationSet Name="vols_ibfk_2" Association="Self.vols_ibfk_2">
+      <End Role="aeroports" EntitySet="aeroports" />
+      <End Role="vols" EntitySet="vols" />
+    </AssociationSet>
+    <AssociationSet Name="vols_ibfk_3" Association="Self.vols_ibfk_3">
+      <End Role="aeroports" EntitySet="aeroports" />
+      <End Role="vols" EntitySet="vols" />
+    </AssociationSet>
     <AssociationSet Name="reservation_ibfk_4" Association="Self.reservation_ibfk_4">
       <End Role="clients" EntitySet="clients" />
       <End Role="reservation" EntitySet="reservation" />
-    </AssociationSet>
-    <AssociationSet Name="vols_ibfk_1" Association="Self.vols_ibfk_1">
-      <End Role="destinations" EntitySet="destinations" />
-      <End Role="vols" EntitySet="vols" />
     </AssociationSet>
     <AssociationSet Name="reservation_ibfk_3" Association="Self.reservation_ibfk_3">
       <End Role="vols" EntitySet="vols" />
       <End Role="reservation" EntitySet="reservation" />
     </AssociationSet>
-    <AssociationSet Name="vols_ibfk_2" Association="LowCostTravelModel.vols_ibfk_2">
-      <End Role="aeroports" EntitySet="aeroports" />
-      <End Role="vols" EntitySet="vols" />
-    </AssociationSet>
-    <AssociationSet Name="vols_ibfk_3" Association="LowCostTravelModel.vols_ibfk_3">
-      <End Role="aeroports" EntitySet="aeroports" />
-      <End Role="vols" EntitySet="vols" />
-    </AssociationSet>
   </EntityContainer>
-  <Association Name="vols_ibfk_2">
-    <End Type="LowCostTravelModel.aeroports" Role="aeroports" Multiplicity="1" />
-    <End Type="LowCostTravelModel.vols" Role="vols" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="aeroports">
-        <PropertyRef Name="id_aero" />
-      </Principal>
-      <Dependent Role="vols">
-        <PropertyRef Name="id_aero_depart" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="vols_ibfk_3">
-    <End Type="LowCostTravelModel.aeroports" Role="aeroports" Multiplicity="1" />
-    <End Type="LowCostTravelModel.vols" Role="vols" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="aeroports">
-        <PropertyRef Name="id_aero" />
-      </Principal>
-      <Dependent Role="vols">
-        <PropertyRef Name="id_aero_arriver" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

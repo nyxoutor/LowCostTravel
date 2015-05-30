@@ -14,8 +14,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Add_Vols : Form
     {
-        private VolsModele bd;
-        public Fm_Add_Vols(VolsModele p_bd)
+        private SoldVol bd;
+        public Fm_Add_Vols(SoldVol p_bd)
         {
             InitializeComponent();
             bd = p_bd;
@@ -45,7 +45,6 @@ namespace LowCostTravel
             vol.arrivee_vols = Convert.ToDateTime(dateTimePicker2.Text);
             vol.id_aero_depart = Convert.ToInt32(Cb_Depart.SelectedValue);
             vol.id_aero_arriver = Convert.ToInt32(Cb_arrivee.SelectedValue);
-            vol.id_dest = Convert.ToInt32(Cb_arrivee.SelectedValue);
             vol.prix_vols = Convert.ToInt32(Tb_Prix.Text);
             vol.places_vols = Convert.ToInt32(Tb_Places.Text);
             vol.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);

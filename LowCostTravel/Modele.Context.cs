@@ -13,10 +13,10 @@ namespace LowCostTravel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VolsModele : DbContext
+    public partial class SoldVol : DbContext
     {
-        public VolsModele()
-            : base("name=VolsModele")
+        public SoldVol()
+            : base("name=SoldVol")
         {
         }
     
@@ -27,7 +27,6 @@ namespace LowCostTravel
     
         public DbSet<aeroports> aeroports { get; set; }
         public DbSet<clients> clients { get; set; }
-        public DbSet<destinations> destinations { get; set; }
         public DbSet<employe> employe { get; set; }
         public DbSet<reservation> reservation { get; set; }
         public DbSet<vols> vols { get; set; }

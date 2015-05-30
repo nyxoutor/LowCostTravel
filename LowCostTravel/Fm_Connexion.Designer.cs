@@ -34,6 +34,7 @@
             this.Lb_Password = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.Btn_Connexion = new System.Windows.Forms.Button();
+            this.Bt_New_Employe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lb_Connexion
@@ -79,19 +80,30 @@
             // 
             // Btn_Connexion
             // 
-            this.Btn_Connexion.Location = new System.Drawing.Point(246, 246);
+            this.Btn_Connexion.Location = new System.Drawing.Point(182, 246);
             this.Btn_Connexion.Name = "Btn_Connexion";
-            this.Btn_Connexion.Size = new System.Drawing.Size(101, 23);
+            this.Btn_Connexion.Size = new System.Drawing.Size(122, 23);
             this.Btn_Connexion.TabIndex = 5;
             this.Btn_Connexion.Text = "Se Connecter";
             this.Btn_Connexion.UseVisualStyleBackColor = true;
             this.Btn_Connexion.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Bt_New_Employe
+            // 
+            this.Bt_New_Employe.Location = new System.Drawing.Point(341, 246);
+            this.Bt_New_Employe.Name = "Bt_New_Employe";
+            this.Bt_New_Employe.Size = new System.Drawing.Size(109, 23);
+            this.Bt_New_Employe.TabIndex = 6;
+            this.Bt_New_Employe.Text = "Nouvel Utilisateur";
+            this.Bt_New_Employe.UseVisualStyleBackColor = true;
+            this.Bt_New_Employe.Click += new System.EventHandler(this.Bt_New_Employe_Click);
             // 
             // Fm_Connexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 335);
+            this.Controls.Add(this.Bt_New_Employe);
             this.Controls.Add(this.Btn_Connexion);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.Lb_Password);
@@ -114,6 +126,7 @@
         private System.Windows.Forms.Label Lb_Password;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button Btn_Connexion;
+        private System.Windows.Forms.Button Bt_New_Employe;
     }
 }
 

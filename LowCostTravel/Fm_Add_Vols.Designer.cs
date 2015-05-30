@@ -130,7 +130,7 @@
             // 
             this.Tb_Prix.Location = new System.Drawing.Point(265, 245);
             this.Tb_Prix.Name = "Tb_Prix";
-            this.Tb_Prix.Size = new System.Drawing.Size(100, 20);
+            this.Tb_Prix.Size = new System.Drawing.Size(120, 20);
             this.Tb_Prix.TabIndex = 10;
             // 
             // Lb_Places
@@ -146,7 +146,7 @@
             // 
             this.Tb_Places.Location = new System.Drawing.Point(265, 290);
             this.Tb_Places.Name = "Tb_Places";
-            this.Tb_Places.Size = new System.Drawing.Size(100, 20);
+            this.Tb_Places.Size = new System.Drawing.Size(120, 20);
             this.Tb_Places.TabIndex = 12;
             // 
             // Btn_Annuler

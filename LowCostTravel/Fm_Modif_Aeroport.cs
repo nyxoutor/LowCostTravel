@@ -12,9 +12,9 @@ namespace LowCostTravel
 {
     public partial class Fm_Modif_Aeroport : Form
     {
-        private VolsModele bd;
+        private SoldVol bd;
         private aeroports aeroModifier;
-        public Fm_Modif_Aeroport(VolsModele p_bd, aeroports aero)
+        public Fm_Modif_Aeroport(SoldVol p_bd, aeroports aero)
         {
             InitializeComponent();
             bd = p_bd;

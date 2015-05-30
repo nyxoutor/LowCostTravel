@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.Lb_Choix = new System.Windows.Forms.Label();
             this.Bt_Aeroports = new System.Windows.Forms.Button();
-            this.Bt_Destination = new System.Windows.Forms.Button();
             this.Bt_Clients = new System.Windows.Forms.Button();
             this.Bt_Vols = new System.Windows.Forms.Button();
             this.Lb_Clients = new System.Windows.Forms.Label();
@@ -54,7 +53,6 @@
             this.passwordclientsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tokenclientsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +61,7 @@
             this.villeclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailclientsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -86,19 +85,9 @@
             this.Bt_Aeroports.UseVisualStyleBackColor = true;
             this.Bt_Aeroports.Click += new System.EventHandler(this.Bt_Aeroports_Click);
             // 
-            // Bt_Destination
-            // 
-            this.Bt_Destination.Location = new System.Drawing.Point(263, 28);
-            this.Bt_Destination.Name = "Bt_Destination";
-            this.Bt_Destination.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Destination.TabIndex = 2;
-            this.Bt_Destination.Text = "Destinations";
-            this.Bt_Destination.UseVisualStyleBackColor = true;
-            this.Bt_Destination.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Bt_Clients
             // 
-            this.Bt_Clients.Location = new System.Drawing.Point(363, 28);
+            this.Bt_Clients.Location = new System.Drawing.Point(295, 28);
             this.Bt_Clients.Name = "Bt_Clients";
             this.Bt_Clients.Size = new System.Drawing.Size(75, 23);
             this.Bt_Clients.TabIndex = 3;
@@ -107,7 +96,7 @@
             // 
             // Bt_Vols
             // 
-            this.Bt_Vols.Location = new System.Drawing.Point(466, 28);
+            this.Bt_Vols.Location = new System.Drawing.Point(419, 28);
             this.Bt_Vols.Name = "Bt_Vols";
             this.Bt_Vols.Size = new System.Drawing.Size(75, 23);
             this.Bt_Vols.TabIndex = 4;
@@ -137,12 +126,12 @@
             this.telclientsDataGridViewTextBoxColumn1,
             this.mailclientsDataGridViewTextBoxColumn1});
             this.dataGridView1.DataSource = this.clientsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(157, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(57, 101);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(292, 217);
+            this.dataGridView1.Size = new System.Drawing.Size(539, 217);
             this.dataGridView1.TabIndex = 6;
             // 
             // Bt_Debut
@@ -193,6 +182,7 @@
             this.Bt_Supprimer.TabIndex = 11;
             this.Bt_Supprimer.Text = "-";
             this.Bt_Supprimer.UseVisualStyleBackColor = true;
+            this.Bt_Supprimer.Click += new System.EventHandler(this.Bt_Supprimer_Click);
             // 
             // Bt_Ajouter
             // 
@@ -289,65 +279,65 @@
             this.volsDataGridViewTextBoxColumn.Name = "volsDataGridViewTextBoxColumn";
             this.volsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // clientsBindingSource
-            // 
-            this.clientsBindingSource.DataSource = typeof(LowCostTravel.clients);
-            // 
             // idclientsDataGridViewTextBoxColumn1
             // 
             this.idclientsDataGridViewTextBoxColumn1.DataPropertyName = "id_clients";
-            this.idclientsDataGridViewTextBoxColumn1.HeaderText = "id_clients";
+            this.idclientsDataGridViewTextBoxColumn1.HeaderText = "ID";
             this.idclientsDataGridViewTextBoxColumn1.Name = "idclientsDataGridViewTextBoxColumn1";
             this.idclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // nomclientsDataGridViewTextBoxColumn1
             // 
             this.nomclientsDataGridViewTextBoxColumn1.DataPropertyName = "nom_clients";
-            this.nomclientsDataGridViewTextBoxColumn1.HeaderText = "nom_clients";
+            this.nomclientsDataGridViewTextBoxColumn1.HeaderText = "Nom";
             this.nomclientsDataGridViewTextBoxColumn1.Name = "nomclientsDataGridViewTextBoxColumn1";
             this.nomclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // prenomclientsDataGridViewTextBoxColumn1
             // 
             this.prenomclientsDataGridViewTextBoxColumn1.DataPropertyName = "prenom_clients";
-            this.prenomclientsDataGridViewTextBoxColumn1.HeaderText = "prenom_clients";
+            this.prenomclientsDataGridViewTextBoxColumn1.HeaderText = "Prénom";
             this.prenomclientsDataGridViewTextBoxColumn1.Name = "prenomclientsDataGridViewTextBoxColumn1";
             this.prenomclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // adresseclientsDataGridViewTextBoxColumn1
             // 
             this.adresseclientsDataGridViewTextBoxColumn1.DataPropertyName = "adresse_clients";
-            this.adresseclientsDataGridViewTextBoxColumn1.HeaderText = "adresse_clients";
+            this.adresseclientsDataGridViewTextBoxColumn1.HeaderText = "Adresse";
             this.adresseclientsDataGridViewTextBoxColumn1.Name = "adresseclientsDataGridViewTextBoxColumn1";
             this.adresseclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // cpclientsDataGridViewTextBoxColumn1
             // 
             this.cpclientsDataGridViewTextBoxColumn1.DataPropertyName = "cp_clients";
-            this.cpclientsDataGridViewTextBoxColumn1.HeaderText = "cp_clients";
+            this.cpclientsDataGridViewTextBoxColumn1.HeaderText = "Code Postal";
             this.cpclientsDataGridViewTextBoxColumn1.Name = "cpclientsDataGridViewTextBoxColumn1";
             this.cpclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // villeclientsDataGridViewTextBoxColumn1
             // 
             this.villeclientsDataGridViewTextBoxColumn1.DataPropertyName = "ville_clients";
-            this.villeclientsDataGridViewTextBoxColumn1.HeaderText = "ville_clients";
+            this.villeclientsDataGridViewTextBoxColumn1.HeaderText = "Ville";
             this.villeclientsDataGridViewTextBoxColumn1.Name = "villeclientsDataGridViewTextBoxColumn1";
             this.villeclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // telclientsDataGridViewTextBoxColumn1
             // 
             this.telclientsDataGridViewTextBoxColumn1.DataPropertyName = "tel_clients";
-            this.telclientsDataGridViewTextBoxColumn1.HeaderText = "tel_clients";
+            this.telclientsDataGridViewTextBoxColumn1.HeaderText = "Téléphone";
             this.telclientsDataGridViewTextBoxColumn1.Name = "telclientsDataGridViewTextBoxColumn1";
             this.telclientsDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // mailclientsDataGridViewTextBoxColumn1
             // 
             this.mailclientsDataGridViewTextBoxColumn1.DataPropertyName = "mail_clients";
-            this.mailclientsDataGridViewTextBoxColumn1.HeaderText = "mail_clients";
+            this.mailclientsDataGridViewTextBoxColumn1.HeaderText = "Mail";
             this.mailclientsDataGridViewTextBoxColumn1.Name = "mailclientsDataGridViewTextBoxColumn1";
             this.mailclientsDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // clientsBindingSource
+            // 
+            this.clientsBindingSource.DataSource = typeof(LowCostTravel.clients);
             // 
             // Fm_Clients
             // 
@@ -365,7 +355,6 @@
             this.Controls.Add(this.Lb_Clients);
             this.Controls.Add(this.Bt_Vols);
             this.Controls.Add(this.Bt_Clients);
-            this.Controls.Add(this.Bt_Destination);
             this.Controls.Add(this.Bt_Aeroports);
             this.Controls.Add(this.Lb_Choix);
             this.Name = "Fm_Clients";
@@ -382,7 +371,6 @@
 
         private System.Windows.Forms.Label Lb_Choix;
         private System.Windows.Forms.Button Bt_Aeroports;
-        private System.Windows.Forms.Button Bt_Destination;
         private System.Windows.Forms.Button Bt_Clients;
         private System.Windows.Forms.Button Bt_Vols;
         private System.Windows.Forms.Label Lb_Clients;

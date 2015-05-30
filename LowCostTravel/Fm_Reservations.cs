@@ -12,9 +12,19 @@ namespace LowCostTravel
 {
     public partial class Fm_Reservations : Form
     {
-        public Fm_Reservations()
+        private SoldVol bd;
+        public Fm_Reservations(SoldVol p_bd)
         {
             InitializeComponent();
+            bd = p_bd;
+            reservationBindingSource.DataSource = bd.reservation.ToList();
         }
+
+        private void Fm_Reservations_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

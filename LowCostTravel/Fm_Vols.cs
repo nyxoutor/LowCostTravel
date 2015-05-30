@@ -12,8 +12,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Vols : Form
     {
-        private VolsModele bd;
-        public Fm_Vols(VolsModele p_bd)
+        private SoldVol bd;
+        public Fm_Vols(SoldVol p_bd)
         {
             InitializeComponent();
             bd = p_bd;
@@ -94,7 +94,7 @@ namespace LowCostTravel
             vols volModif = bd.vols.Find(id);
             Fm_Modif__Vols volModifier = new Fm_Modif__Vols(bd, volModif);
             volModifier.ShowDialog();
-            volsBindingSource.DataSource = bd.aeroports.ToList();
+            volsBindingSource.DataSource = bd.vols.ToList();
         }
     }
 }

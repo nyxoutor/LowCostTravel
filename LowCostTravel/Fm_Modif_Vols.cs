@@ -12,9 +12,9 @@ namespace LowCostTravel
 {
     public partial class Fm_Modif__Vols : Form
     {
-        private VolsModele bd;
+        private SoldVol bd;
         private vols volModif;
-        public Fm_Modif__Vols(VolsModele p_bd, vols vol)
+        public Fm_Modif__Vols(SoldVol p_bd, vols vol)
         {
             InitializeComponent();
             bd = p_bd;
@@ -49,6 +49,16 @@ namespace LowCostTravel
 
         private void Bt_Modifier_Click(object sender, EventArgs e)
         {
+            volModif.depart_vols = Convert.ToDateTime(dateTimePicker1.Text);
+            volModif.arrivee_vols = Convert.ToDateTime(dateTimePicker2.Text);
+            volModif.id_aero_depart = Convert.ToInt32(Cb_Depart.SelectedValue);
+            volModif.id_aero_arriver = Convert.ToInt32(Cb_Arrivee.SelectedValue);
+            volModif.prix_vols = Convert.ToInt32(Tb_Prix.Text);
+            volModif.places_vols = Convert.ToInt32(Tb_Places.Text);
+            volModif.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);
+            bd.Entry(volModif).State = EntityState.Modified;
+            bd.SaveChanges();
+            this.Hide();
 
         }
     }

@@ -28,6 +28,12 @@ namespace LowCostTravel
         {
 
         }
+
+        private void Bt_New_Employe_Click(object sender, EventArgs e)
+        {
+            Fm_Add_Employe employe = new Fm_Add_Employe();
+            employe.Show();
+        }
         
     }
 }

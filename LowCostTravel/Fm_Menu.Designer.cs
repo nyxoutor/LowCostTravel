@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Aeroports = new System.Windows.Forms.Button();
             this.Btn_Clients = new System.Windows.Forms.Button();
-            this.Btn_Destinations = new System.Windows.Forms.Button();
             this.Btn_Reservations = new System.Windows.Forms.Button();
             this.Btn_Vols = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -65,15 +64,6 @@
             this.Btn_Clients.UseVisualStyleBackColor = true;
             this.Btn_Clients.Click += new System.EventHandler(this.Btn_Clients_Click);
             // 
-            // Btn_Destinations
-            // 
-            this.Btn_Destinations.Location = new System.Drawing.Point(111, 214);
-            this.Btn_Destinations.Name = "Btn_Destinations";
-            this.Btn_Destinations.Size = new System.Drawing.Size(83, 23);
-            this.Btn_Destinations.TabIndex = 3;
-            this.Btn_Destinations.Text = "Destinations";
-            this.Btn_Destinations.UseVisualStyleBackColor = true;
-            // 
             // Btn_Reservations
             // 
             this.Btn_Reservations.Location = new System.Drawing.Point(267, 214);
@@ -82,10 +72,11 @@
             this.Btn_Reservations.TabIndex = 4;
             this.Btn_Reservations.Text = "Réservations";
             this.Btn_Reservations.UseVisualStyleBackColor = true;
+            this.Btn_Reservations.Click += new System.EventHandler(this.Btn_Reservations_Click);
             // 
             // Btn_Vols
             // 
-            this.Btn_Vols.Location = new System.Drawing.Point(191, 270);
+            this.Btn_Vols.Location = new System.Drawing.Point(114, 214);
             this.Btn_Vols.Name = "Btn_Vols";
             this.Btn_Vols.Size = new System.Drawing.Size(80, 23);
             this.Btn_Vols.TabIndex = 5;
@@ -100,7 +91,6 @@
             this.ClientSize = new System.Drawing.Size(458, 334);
             this.Controls.Add(this.Btn_Vols);
             this.Controls.Add(this.Btn_Reservations);
-            this.Controls.Add(this.Btn_Destinations);
             this.Controls.Add(this.Btn_Clients);
             this.Controls.Add(this.Btn_Aeroports);
             this.Controls.Add(this.label1);
@@ -117,7 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Btn_Aeroports;
         private System.Windows.Forms.Button Btn_Clients;
-        private System.Windows.Forms.Button Btn_Destinations;
         private System.Windows.Forms.Button Btn_Reservations;
         private System.Windows.Forms.Button Btn_Vols;
     }

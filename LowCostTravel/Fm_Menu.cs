@@ -12,11 +12,11 @@ namespace LowCostTravel
 {
     public partial class Fm_Menu : Form
     {
-        private VolsModele bd;
+        private SoldVol bd;
         public Fm_Menu()
         {
             InitializeComponent();
-            bd = new VolsModele();
+            bd = new SoldVol();
         }
 
         private void Btn_Aeroports_Click(object sender, EventArgs e)
@@ -42,6 +42,13 @@ namespace LowCostTravel
         {
             Fm_Clients clients = new Fm_Clients(bd);
             clients.Show();
+            this.Hide();
+        }
+
+        private void Btn_Reservations_Click(object sender, EventArgs e)
+        {
+            Fm_Reservations reservations = new Fm_Reservations(bd);
+            reservations.Show();
             this.Hide();
         }
     }

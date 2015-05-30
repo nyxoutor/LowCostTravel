@@ -33,7 +33,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Lb_Choix = new System.Windows.Forms.Label();
             this.Btn_Clients = new System.Windows.Forms.Button();
-            this.Btn_Destinations = new System.Windows.Forms.Button();
             this.Btn_Reservations = new System.Windows.Forms.Button();
             this.Btn_Vols = new System.Windows.Forms.Button();
             this.Btn_Debut = new System.Windows.Forms.Button();
@@ -76,6 +75,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(256, 216);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Lb_Choix
             // 
@@ -96,18 +96,9 @@
             this.Btn_Clients.UseVisualStyleBackColor = true;
             this.Btn_Clients.Click += new System.EventHandler(this.Btn_Clients_Click);
             // 
-            // Btn_Destinations
-            // 
-            this.Btn_Destinations.Location = new System.Drawing.Point(245, 23);
-            this.Btn_Destinations.Name = "Btn_Destinations";
-            this.Btn_Destinations.Size = new System.Drawing.Size(89, 23);
-            this.Btn_Destinations.TabIndex = 4;
-            this.Btn_Destinations.Text = "Destinations";
-            this.Btn_Destinations.UseVisualStyleBackColor = true;
-            // 
             // Btn_Reservations
             // 
-            this.Btn_Reservations.Location = new System.Drawing.Point(351, 23);
+            this.Btn_Reservations.Location = new System.Drawing.Point(281, 23);
             this.Btn_Reservations.Name = "Btn_Reservations";
             this.Btn_Reservations.Size = new System.Drawing.Size(87, 23);
             this.Btn_Reservations.TabIndex = 5;
@@ -116,12 +107,13 @@
             // 
             // Btn_Vols
             // 
-            this.Btn_Vols.Location = new System.Drawing.Point(458, 23);
+            this.Btn_Vols.Location = new System.Drawing.Point(426, 23);
             this.Btn_Vols.Name = "Btn_Vols";
             this.Btn_Vols.Size = new System.Drawing.Size(83, 23);
             this.Btn_Vols.TabIndex = 6;
             this.Btn_Vols.Text = "Vols";
             this.Btn_Vols.UseVisualStyleBackColor = true;
+            this.Btn_Vols.Click += new System.EventHandler(this.Btn_Vols_Click);
             // 
             // Btn_Debut
             // 
@@ -214,14 +206,14 @@
             // idaeroDataGridViewTextBoxColumn1
             // 
             this.idaeroDataGridViewTextBoxColumn1.DataPropertyName = "id_aero";
-            this.idaeroDataGridViewTextBoxColumn1.HeaderText = "id_aero";
+            this.idaeroDataGridViewTextBoxColumn1.HeaderText = "ID";
             this.idaeroDataGridViewTextBoxColumn1.Name = "idaeroDataGridViewTextBoxColumn1";
             this.idaeroDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // villeaeroDataGridViewTextBoxColumn1
             // 
             this.villeaeroDataGridViewTextBoxColumn1.DataPropertyName = "ville_aero";
-            this.villeaeroDataGridViewTextBoxColumn1.HeaderText = "ville_aero";
+            this.villeaeroDataGridViewTextBoxColumn1.HeaderText = "Ville";
             this.villeaeroDataGridViewTextBoxColumn1.Name = "villeaeroDataGridViewTextBoxColumn1";
             this.villeaeroDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -239,7 +231,6 @@
             this.Controls.Add(this.Btn_Debut);
             this.Controls.Add(this.Btn_Vols);
             this.Controls.Add(this.Btn_Reservations);
-            this.Controls.Add(this.Btn_Destinations);
             this.Controls.Add(this.Btn_Clients);
             this.Controls.Add(this.Lb_Choix);
             this.Controls.Add(this.dataGridView1);
@@ -260,7 +251,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label Lb_Choix;
         private System.Windows.Forms.Button Btn_Clients;
-        private System.Windows.Forms.Button Btn_Destinations;
         private System.Windows.Forms.Button Btn_Reservations;
         private System.Windows.Forms.Button Btn_Vols;
         private System.Windows.Forms.Button Btn_Debut;
@@ -272,8 +262,8 @@
         private System.Windows.Forms.Button Btn_Modifier;
         private System.Windows.Forms.DataGridViewTextBoxColumn idaeroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn villeaeroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource Bs;
         private System.Windows.Forms.DataGridViewTextBoxColumn idaeroDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn villeaeroDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource Bs;
     }
 }
