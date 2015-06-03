@@ -58,6 +58,7 @@ namespace LowCostTravel
             volModif.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);
             bd.Entry(volModif).State = EntityState.Modified;
             bd.SaveChanges();
+            
             this.Hide();
 
         }

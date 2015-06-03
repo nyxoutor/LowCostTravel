@@ -32,7 +32,7 @@
             this.Lb_Login = new System.Windows.Forms.Label();
             this.TB_Login = new System.Windows.Forms.TextBox();
             this.Lb_Password = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TB_Password = new System.Windows.Forms.TextBox();
             this.Btn_Connexion = new System.Windows.Forms.Button();
             this.Bt_New_Employe = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -71,12 +71,13 @@
             this.Lb_Password.TabIndex = 3;
             this.Lb_Password.Text = "Password :";
             // 
-            // textBox2
+            // TB_Password
             // 
-            this.textBox2.Location = new System.Drawing.Point(316, 179);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.TB_Password.Location = new System.Drawing.Point(316, 179);
+            this.TB_Password.Name = "TB_Password";
+            this.TB_Password.PasswordChar = '*';
+            this.TB_Password.Size = new System.Drawing.Size(100, 20);
+            this.TB_Password.TabIndex = 4;
             // 
             // Btn_Connexion
             // 
@@ -105,7 +106,7 @@
             this.ClientSize = new System.Drawing.Size(592, 335);
             this.Controls.Add(this.Bt_New_Employe);
             this.Controls.Add(this.Btn_Connexion);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TB_Password);
             this.Controls.Add(this.Lb_Password);
             this.Controls.Add(this.TB_Login);
             this.Controls.Add(this.Lb_Login);
@@ -124,7 +125,7 @@
         private System.Windows.Forms.Label Lb_Login;
         private System.Windows.Forms.TextBox TB_Login;
         private System.Windows.Forms.Label Lb_Password;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TB_Password;
         private System.Windows.Forms.Button Btn_Connexion;
         private System.Windows.Forms.Button Bt_New_Employe;
     }
