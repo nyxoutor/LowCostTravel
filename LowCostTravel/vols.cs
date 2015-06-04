@@ -34,6 +34,5 @@ namespace LowCostTravel
 
         public string Aero_Dep { get { return this.aeroports.ville_aero; } }
         public string Aero_Arr { get { return this.aeroports1.ville_aero; } }
-
     }
 }

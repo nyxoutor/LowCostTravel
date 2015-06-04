@@ -30,7 +30,7 @@
     <Property Name="nom" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prenom" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="login" Type="varchar" MaxLength="16" Nullable="false" />
-    <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="reservation">
     <Key>

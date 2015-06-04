@@ -35,7 +35,7 @@
           <Property Name="nom" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="prenom" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="login" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="reservation">
           <Key>
@@ -171,7 +171,7 @@
           <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="login" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="reservation">
           <Key>
@@ -251,7 +251,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SoldVol" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SoldVolEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="aeroports" EntityType="Self.aeroports" />
           <EntitySet Name="clients" EntityType="Self.clients" />
           <EntitySet Name="employe" EntityType="Self.employe" />
@@ -279,7 +279,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LowCostTravelModelStoreContainer" CdmEntityContainer="SoldVol">
+        <EntityContainerMapping StorageEntityContainer="LowCostTravelModelStoreContainer" CdmEntityContainer="SoldVolEntities">
           <EntitySetMapping Name="aeroports">
             <EntityTypeMapping TypeName="LowCostTravelModel.aeroports">
               <MappingFragment StoreEntitySet="aeroports">

@@ -12,9 +12,9 @@ namespace LowCostTravel
 {
     public partial class Fm_Modif__Vols : Form
     {
-        private SoldVol bd;
+        private SoldVolEntities bd;
         private vols volModif;
-        public Fm_Modif__Vols(SoldVol p_bd, vols vol)
+        public Fm_Modif__Vols(SoldVolEntities p_bd, vols vol)
         {
             InitializeComponent();
             bd = p_bd;

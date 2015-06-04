@@ -12,8 +12,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Add_Aeroport : Form
     {
-        private SoldVol bd;
-        public Fm_Add_Aeroport(SoldVol p_bd)
+        private SoldVolEntities bd;
+        public Fm_Add_Aeroport(SoldVolEntities p_bd)
         {
             InitializeComponent();
             bd = p_bd;

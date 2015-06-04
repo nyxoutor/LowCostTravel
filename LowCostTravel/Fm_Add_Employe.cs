@@ -13,8 +13,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Add_Employe : Form
     {
-        private SoldVol bd;
-        public Fm_Add_Employe(SoldVol p_bd)
+        private SoldVolEntities bd;
+        public Fm_Add_Employe(SoldVolEntities p_bd)
         {
             InitializeComponent();
             bd = p_bd;
@@ -39,18 +39,33 @@ namespace LowCostTravel
             using (MD5 md5Hash = MD5.Create()){
                 employeAdd.password = GetMd5Hash(md5Hash, Tb_Pass.Text);
             }
-            bd.employe.Add(employeAdd);
-            bd.SaveChanges();
+            try
+            {
+                bd.employe.Add(employeAdd);
+                bd.SaveChanges();
+            }
+
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new Exception(exceptionMessage);
+            }
             MessageBox.Show("GG WP !");
             this.Close();
-            // a continuer pour crypter le mdp
-
-        
-
-         
-
             
         }
+
         static string GetMd5Hash(MD5 md5Hash, string input)
         {
 

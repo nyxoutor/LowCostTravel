@@ -13,10 +13,10 @@ namespace LowCostTravel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SoldVol : DbContext
+    public partial class SoldVolEntities : DbContext
     {
-        public SoldVol()
-            : base("name=SoldVol")
+        public SoldVolEntities()
+            : base("name=SoldVolEntities")
         {
         }
     

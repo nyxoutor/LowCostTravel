@@ -33,7 +33,7 @@
     <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="login" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="reservation">
     <Key>
@@ -113,7 +113,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SoldVol" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="SoldVolEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="aeroports" EntityType="Self.aeroports" />
     <EntitySet Name="clients" EntityType="Self.clients" />
     <EntitySet Name="employe" EntityType="Self.employe" />
