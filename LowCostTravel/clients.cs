@@ -29,6 +29,8 @@ namespace LowCostTravel
         public string mail_clients { get; set; }
         public string password_clients { get; set; }
         public string token_clients { get; set; }
+
+        public string nomComplet { get { return prenom_clients + " " + nom_clients; } }
     
         public virtual ICollection<reservation> reservation { get; set; }
     }

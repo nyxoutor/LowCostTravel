@@ -32,31 +32,36 @@ namespace LowCostTravel
                 return;
             }
 
-            var user = (from em in bd.employe
-                        where em.login.Equals(Login)
-                        select em).Single();
-
-            using (MD5 md5Hash = MD5.Create())
+            try
             {
-                Password = GetMd5Hash(md5Hash, TB_Password.Text);
-            }
+                var user = (from em in bd.employe
+                            where em.login.Equals(Login)
+                            select em).Single();
 
+                using (MD5 md5Hash = MD5.Create())
+                {
+                    Password = GetMd5Hash(md5Hash, TB_Password.Text);
+                }
+                if (Password.Equals(user.password))
+                {
 
+                    MessageBox.Show("Bienvenue " + user.prenom + " " + user.nom + ".");
+                    Fm_Menu menu = new Fm_Menu();
+                    menu.Show();
+                    this.Hide();
 
-            if (Password.Equals(user.password))
-            {
-                
-                MessageBox.Show("Bienvenue "+ user.prenom +" "+user.nom+".");
-                Fm_Menu menu = new Fm_Menu();
-                menu.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Mot de passe invalide !");
+                }
                 this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Login invalide !");
                 
             }
-            else
-            {
-                MessageBox.Show("Identifiants invalides !");
-            }
-            this.Hide();
             /*Fm_Menu menu = new Fm_Menu();
             menu.Show();
             this.Hide();*/

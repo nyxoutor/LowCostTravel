@@ -22,5 +22,11 @@ namespace LowCostTravel
     
         public virtual clients clients { get; set; }
         public virtual vols vols { get; set; }
+
+        public string Nom_client { get { return this.clients.nom_clients; } }
+        public string Prenom_client { get { return this.clients.prenom_clients; } }
+        public string Depart { get { return this.vols.Aero_Dep; } }
+        public string Arrivee { get { return this.vols.Aero_Arr; } }
+        public System.DateTime Date_Vol { get { return this.vols.depart_vols; } }
     }
 }

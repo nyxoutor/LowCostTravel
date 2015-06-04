@@ -25,6 +25,13 @@ namespace LowCostTravel
 
         }
 
+        private void Bt_Ajout_Click(object sender, EventArgs e)
+        {
+            Fm_Add_Reservation addResa = new Fm_Add_Reservation(bd);
+            addResa.ShowDialog();
+            reservationBindingSource.DataSource = bd.reservation.ToList();
+        }
+
         
     }
 }

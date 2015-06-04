@@ -73,6 +73,12 @@
     <Compile Include="Fm_Add_Employe.Designer.cs">
       <DependentUpon>Fm_Add_Employe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fm_Add_Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_Add_Reservation.Designer.cs">
+      <DependentUpon>Fm_Add_Reservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fm_Add_Vols.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Add_Employe.resx">
       <DependentUpon>Fm_Add_Employe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fm_Add_Reservation.resx">
+      <DependentUpon>Fm_Add_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Add_Vols.resx">
       <DependentUpon>Fm_Add_Vols.cs</DependentUpon>
