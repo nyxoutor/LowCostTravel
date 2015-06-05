@@ -39,6 +39,14 @@ namespace LowCostTravel
         private void Bt_Confirmer_Click(object sender, EventArgs e)
         {
             reservation resaAdd = new reservation();
+            resaAdd.id_vols = Convert.ToInt32(CB_Vols.SelectedValue);
+            resaAdd.id_clients = Convert.ToInt32(CB_Clients.SelectedValue);
+            resaAdd.etat_reservation = "En attente";
+            resaAdd.date_reservation = DateTime.Now;
+            resaAdd.place_reservation = Convert.ToInt32(TB_Places.Text);
+            bd.reservation.Add(resaAdd);
+            bd.SaveChanges();
+            this.Hide();
 
         }
     }

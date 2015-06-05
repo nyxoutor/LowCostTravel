@@ -109,6 +109,12 @@
     <Compile Include="Fm_Connexion.Designer.cs">
       <DependentUpon>Fm_Connexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fm_Modif_Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_Modif_Reservation.Designer.cs">
+      <DependentUpon>Fm_Modif_Reservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fm_Modif_Vols.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Connexion.resx">
       <DependentUpon>Fm_Connexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fm_Modif_Reservation.resx">
+      <DependentUpon>Fm_Modif_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Modif_Vols.resx">
       <DependentUpon>Fm_Modif_Vols.cs</DependentUpon>
