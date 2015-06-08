@@ -37,16 +37,34 @@ namespace LowCostTravel
 
             if (resaModif.etat_reservation == "Annulée")
             {
-                Cb_Etat.SelectedIndex = 1;
+                Cb_Etat.SelectedItem = "Annulée";
             }
             else if (resaModif.etat_reservation == "En attente")
             {
-                Cb_Etat.SelectedIndex = 2;
+                Cb_Etat.SelectedItem = "En attente";
             }
             else if (resaModif.etat_reservation == "Confirmée")
             {
-                Cb_Etat.SelectedIndex = 3;
+                Cb_Etat.SelectedItem = "Confirmée";
             }
+
+            Tb_Place.Text = Convert.ToString(resaModif.place_reservation);
+
+        }
+
+        private void Bt_Annuler_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Bt_Modifier_Click(object sender, EventArgs e)
+        {
+            
+            resaModif.etat_reservation = Convert.ToString(Cb_Etat.SelectedItem);
+            resaModif.place_reservation = Convert.ToInt32(Tb_Place.Text);
+            bd.Entry(resaModif).State = EntityState.Modified;
+            bd.SaveChanges();
+            this.Hide();
         }
     }
 }

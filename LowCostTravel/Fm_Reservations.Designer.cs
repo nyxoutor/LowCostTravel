@@ -35,13 +35,6 @@
             this.Bt_Vols = new System.Windows.Forms.Button();
             this.Lb_Reservations = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Bt_Debut = new System.Windows.Forms.Button();
-            this.Bt_Precedent = new System.Windows.Forms.Button();
-            this.Bt_Suivant = new System.Windows.Forms.Button();
-            this.Bt_Fin = new System.Windows.Forms.Button();
-            this.Bt_Supprimer = new System.Windows.Forms.Button();
-            this.Bt_Ajout = new System.Windows.Forms.Button();
-            this.Bt_Modifier = new System.Windows.Forms.Button();
             this.id_clients = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom_client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prenom_client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +45,13 @@
             this.datereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Bt_Debut = new System.Windows.Forms.Button();
+            this.Bt_Precedent = new System.Windows.Forms.Button();
+            this.Bt_Suivant = new System.Windows.Forms.Button();
+            this.Bt_Fin = new System.Windows.Forms.Button();
+            this.Bt_Supprimer = new System.Windows.Forms.Button();
+            this.Bt_Ajout = new System.Windows.Forms.Button();
+            this.Bt_Modifier = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -125,71 +125,6 @@
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Bt_Debut
-            // 
-            this.Bt_Debut.Location = new System.Drawing.Point(12, 375);
-            this.Bt_Debut.Name = "Bt_Debut";
-            this.Bt_Debut.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Debut.TabIndex = 6;
-            this.Bt_Debut.Text = "<<";
-            this.Bt_Debut.UseVisualStyleBackColor = true;
-            // 
-            // Bt_Precedent
-            // 
-            this.Bt_Precedent.Location = new System.Drawing.Point(93, 375);
-            this.Bt_Precedent.Name = "Bt_Precedent";
-            this.Bt_Precedent.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Precedent.TabIndex = 7;
-            this.Bt_Precedent.Text = "<";
-            this.Bt_Precedent.UseVisualStyleBackColor = true;
-            // 
-            // Bt_Suivant
-            // 
-            this.Bt_Suivant.Location = new System.Drawing.Point(174, 375);
-            this.Bt_Suivant.Name = "Bt_Suivant";
-            this.Bt_Suivant.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Suivant.TabIndex = 8;
-            this.Bt_Suivant.Text = ">";
-            this.Bt_Suivant.UseVisualStyleBackColor = true;
-            // 
-            // Bt_Fin
-            // 
-            this.Bt_Fin.Location = new System.Drawing.Point(255, 375);
-            this.Bt_Fin.Name = "Bt_Fin";
-            this.Bt_Fin.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Fin.TabIndex = 9;
-            this.Bt_Fin.Text = ">>";
-            this.Bt_Fin.UseVisualStyleBackColor = true;
-            // 
-            // Bt_Supprimer
-            // 
-            this.Bt_Supprimer.Location = new System.Drawing.Point(336, 375);
-            this.Bt_Supprimer.Name = "Bt_Supprimer";
-            this.Bt_Supprimer.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Supprimer.TabIndex = 10;
-            this.Bt_Supprimer.Text = "-";
-            this.Bt_Supprimer.UseVisualStyleBackColor = true;
-            // 
-            // Bt_Ajout
-            // 
-            this.Bt_Ajout.Location = new System.Drawing.Point(428, 375);
-            this.Bt_Ajout.Name = "Bt_Ajout";
-            this.Bt_Ajout.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Ajout.TabIndex = 11;
-            this.Bt_Ajout.Text = "+";
-            this.Bt_Ajout.UseVisualStyleBackColor = true;
-            this.Bt_Ajout.Click += new System.EventHandler(this.Bt_Ajout_Click);
-            // 
-            // Bt_Modifier
-            // 
-            this.Bt_Modifier.Location = new System.Drawing.Point(523, 375);
-            this.Bt_Modifier.Name = "Bt_Modifier";
-            this.Bt_Modifier.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Modifier.TabIndex = 12;
-            this.Bt_Modifier.Text = "Modifier";
-            this.Bt_Modifier.UseVisualStyleBackColor = true;
-            this.Bt_Modifier.Click += new System.EventHandler(this.Bt_Modifier_Click);
-            // 
             // id_clients
             // 
             this.id_clients.DataPropertyName = "id_clients";
@@ -256,6 +191,76 @@
             // reservationBindingSource
             // 
             this.reservationBindingSource.DataSource = typeof(LowCostTravel.reservation);
+            // 
+            // Bt_Debut
+            // 
+            this.Bt_Debut.Location = new System.Drawing.Point(12, 375);
+            this.Bt_Debut.Name = "Bt_Debut";
+            this.Bt_Debut.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Debut.TabIndex = 6;
+            this.Bt_Debut.Text = "<<";
+            this.Bt_Debut.UseVisualStyleBackColor = true;
+            this.Bt_Debut.Click += new System.EventHandler(this.Bt_Debut_Click);
+            // 
+            // Bt_Precedent
+            // 
+            this.Bt_Precedent.Location = new System.Drawing.Point(93, 375);
+            this.Bt_Precedent.Name = "Bt_Precedent";
+            this.Bt_Precedent.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Precedent.TabIndex = 7;
+            this.Bt_Precedent.Text = "<";
+            this.Bt_Precedent.UseVisualStyleBackColor = true;
+            this.Bt_Precedent.Click += new System.EventHandler(this.Bt_Precedent_Click);
+            // 
+            // Bt_Suivant
+            // 
+            this.Bt_Suivant.Location = new System.Drawing.Point(174, 375);
+            this.Bt_Suivant.Name = "Bt_Suivant";
+            this.Bt_Suivant.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Suivant.TabIndex = 8;
+            this.Bt_Suivant.Text = ">";
+            this.Bt_Suivant.UseVisualStyleBackColor = true;
+            this.Bt_Suivant.Click += new System.EventHandler(this.Bt_Suivant_Click);
+            // 
+            // Bt_Fin
+            // 
+            this.Bt_Fin.Location = new System.Drawing.Point(255, 375);
+            this.Bt_Fin.Name = "Bt_Fin";
+            this.Bt_Fin.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Fin.TabIndex = 9;
+            this.Bt_Fin.Text = ">>";
+            this.Bt_Fin.UseVisualStyleBackColor = true;
+            this.Bt_Fin.Click += new System.EventHandler(this.Bt_Fin_Click);
+            // 
+            // Bt_Supprimer
+            // 
+            this.Bt_Supprimer.Location = new System.Drawing.Point(336, 375);
+            this.Bt_Supprimer.Name = "Bt_Supprimer";
+            this.Bt_Supprimer.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Supprimer.TabIndex = 10;
+            this.Bt_Supprimer.Text = "-";
+            this.Bt_Supprimer.UseVisualStyleBackColor = true;
+            this.Bt_Supprimer.Click += new System.EventHandler(this.Bt_Supprimer_Click);
+            // 
+            // Bt_Ajout
+            // 
+            this.Bt_Ajout.Location = new System.Drawing.Point(428, 375);
+            this.Bt_Ajout.Name = "Bt_Ajout";
+            this.Bt_Ajout.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Ajout.TabIndex = 11;
+            this.Bt_Ajout.Text = "+";
+            this.Bt_Ajout.UseVisualStyleBackColor = true;
+            this.Bt_Ajout.Click += new System.EventHandler(this.Bt_Ajout_Click);
+            // 
+            // Bt_Modifier
+            // 
+            this.Bt_Modifier.Location = new System.Drawing.Point(523, 375);
+            this.Bt_Modifier.Name = "Bt_Modifier";
+            this.Bt_Modifier.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Modifier.TabIndex = 12;
+            this.Bt_Modifier.Text = "Modifier";
+            this.Bt_Modifier.UseVisualStyleBackColor = true;
+            this.Bt_Modifier.Click += new System.EventHandler(this.Bt_Modifier_Click);
             // 
             // Fm_Reservations
             // 

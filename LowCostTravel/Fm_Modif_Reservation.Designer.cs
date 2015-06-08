@@ -79,22 +79,27 @@
             // 
             // Cb_Client
             // 
+            this.Cb_Client.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cb_Client.Enabled = false;
             this.Cb_Client.FormattingEnabled = true;
             this.Cb_Client.Location = new System.Drawing.Point(250, 105);
             this.Cb_Client.Name = "Cb_Client";
-            this.Cb_Client.Size = new System.Drawing.Size(121, 21);
+            this.Cb_Client.Size = new System.Drawing.Size(211, 21);
             this.Cb_Client.TabIndex = 4;
             // 
             // Cb_Vol
             // 
+            this.Cb_Vol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cb_Vol.Enabled = false;
             this.Cb_Vol.FormattingEnabled = true;
             this.Cb_Vol.Location = new System.Drawing.Point(250, 144);
             this.Cb_Vol.Name = "Cb_Vol";
-            this.Cb_Vol.Size = new System.Drawing.Size(121, 21);
+            this.Cb_Vol.Size = new System.Drawing.Size(211, 21);
             this.Cb_Vol.TabIndex = 5;
             // 
             // Cb_Etat
             // 
+            this.Cb_Etat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cb_Etat.FormattingEnabled = true;
             this.Cb_Etat.Items.AddRange(new object[] {
             "Annulée",
@@ -102,7 +107,7 @@
             "Confirmée"});
             this.Cb_Etat.Location = new System.Drawing.Point(250, 183);
             this.Cb_Etat.Name = "Cb_Etat";
-            this.Cb_Etat.Size = new System.Drawing.Size(121, 21);
+            this.Cb_Etat.Size = new System.Drawing.Size(211, 21);
             this.Cb_Etat.TabIndex = 6;
             // 
             // label2
@@ -118,7 +123,7 @@
             // 
             this.Tb_Place.Location = new System.Drawing.Point(250, 219);
             this.Tb_Place.Name = "Tb_Place";
-            this.Tb_Place.Size = new System.Drawing.Size(121, 20);
+            this.Tb_Place.Size = new System.Drawing.Size(211, 20);
             this.Tb_Place.TabIndex = 8;
             // 
             // Bt_Annuler
@@ -129,6 +134,7 @@
             this.Bt_Annuler.TabIndex = 9;
             this.Bt_Annuler.Text = "Annuler";
             this.Bt_Annuler.UseVisualStyleBackColor = true;
+            this.Bt_Annuler.Click += new System.EventHandler(this.Bt_Annuler_Click);
             // 
             // Bt_Modifier
             // 
@@ -138,6 +144,7 @@
             this.Bt_Modifier.TabIndex = 10;
             this.Bt_Modifier.Text = "Modifier";
             this.Bt_Modifier.UseVisualStyleBackColor = true;
+            this.Bt_Modifier.Click += new System.EventHandler(this.Bt_Modifier_Click);
             // 
             // Fm_Modif_Reservation
             // 
