@@ -15,3 +15,6 @@ c:\users\tony\documents\visual studio 2013\Projects\LowCostTravel\LowCostTravel\
 C:\Users\Tony\documents\visual studio 2013\Projects\LowCostTravel\LowCostTravel\obj\Debug\LowCostTravel.Fm_Add_Aeroport.resources
 C:\Users\Tony\documents\visual studio 2013\Projects\LowCostTravel\LowCostTravel\obj\Debug\LowCostTravel.Fm_Modif_Aeroport.resources
 C:\Users\Tony\documents\visual studio 2013\Projects\LowCostTravel\LowCostTravel\obj\Debug\LowCostTravel.Fm_Clients.resources
+C:\Users\Tony\Documents\GitHub\LowCostTravel\LowCostTravel\LowCostTravel\bin\Debug\LowCostTravel.exe.config
+C:\Users\Tony\Documents\GitHub\LowCostTravel\LowCostTravel\LowCostTravel\obj\Debug\LowCostTravel.exe
+C:\Users\Tony\Documents\GitHub\LowCostTravel\LowCostTravel\LowCostTravel\obj\Debug\LowCostTravel.pdb

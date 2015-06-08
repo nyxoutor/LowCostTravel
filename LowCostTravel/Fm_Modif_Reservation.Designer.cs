@@ -32,9 +32,13 @@
             this.Lb_Client = new System.Windows.Forms.Label();
             this.Lb_Vol = new System.Windows.Forms.Label();
             this.Lb_Etat = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.Cb_Client = new System.Windows.Forms.ComboBox();
+            this.Cb_Vol = new System.Windows.Forms.ComboBox();
+            this.Cb_Etat = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Tb_Place = new System.Windows.Forms.TextBox();
+            this.Bt_Annuler = new System.Windows.Forms.Button();
+            this.Bt_Modifier = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +53,7 @@
             // Lb_Client
             // 
             this.Lb_Client.AutoSize = true;
-            this.Lb_Client.Location = new System.Drawing.Point(109, 108);
+            this.Lb_Client.Location = new System.Drawing.Point(159, 108);
             this.Lb_Client.Name = "Lb_Client";
             this.Lb_Client.Size = new System.Drawing.Size(39, 13);
             this.Lb_Client.TabIndex = 1;
@@ -58,7 +62,7 @@
             // Lb_Vol
             // 
             this.Lb_Vol.AutoSize = true;
-            this.Lb_Vol.Location = new System.Drawing.Point(120, 147);
+            this.Lb_Vol.Location = new System.Drawing.Point(170, 147);
             this.Lb_Vol.Name = "Lb_Vol";
             this.Lb_Vol.Size = new System.Drawing.Size(28, 13);
             this.Lb_Vol.TabIndex = 2;
@@ -67,54 +71,93 @@
             // Lb_Etat
             // 
             this.Lb_Etat.AutoSize = true;
-            this.Lb_Etat.Location = new System.Drawing.Point(35, 183);
+            this.Lb_Etat.Location = new System.Drawing.Point(85, 186);
             this.Lb_Etat.Name = "Lb_Etat";
             this.Lb_Etat.Size = new System.Drawing.Size(113, 13);
             this.Lb_Etat.TabIndex = 3;
             this.Lb_Etat.Text = "Etat de la réservation :";
             // 
-            // comboBox1
+            // Cb_Client
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(250, 105);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.Cb_Client.FormattingEnabled = true;
+            this.Cb_Client.Location = new System.Drawing.Point(250, 105);
+            this.Cb_Client.Name = "Cb_Client";
+            this.Cb_Client.Size = new System.Drawing.Size(121, 21);
+            this.Cb_Client.TabIndex = 4;
             // 
-            // comboBox2
+            // Cb_Vol
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(250, 144);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 5;
+            this.Cb_Vol.FormattingEnabled = true;
+            this.Cb_Vol.Location = new System.Drawing.Point(250, 144);
+            this.Cb_Vol.Name = "Cb_Vol";
+            this.Cb_Vol.Size = new System.Drawing.Size(121, 21);
+            this.Cb_Vol.TabIndex = 5;
             // 
-            // comboBox3
+            // Cb_Etat
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.Cb_Etat.FormattingEnabled = true;
+            this.Cb_Etat.Items.AddRange(new object[] {
             "Annulée",
             "En attente",
             "Confirmée"});
-            this.comboBox3.Location = new System.Drawing.Point(250, 183);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 6;
+            this.Cb_Etat.Location = new System.Drawing.Point(250, 183);
+            this.Cb_Etat.Name = "Cb_Etat";
+            this.Cb_Etat.Size = new System.Drawing.Size(121, 21);
+            this.Cb_Etat.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 222);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Nombres de places réservées :";
+            // 
+            // Tb_Place
+            // 
+            this.Tb_Place.Location = new System.Drawing.Point(250, 219);
+            this.Tb_Place.Name = "Tb_Place";
+            this.Tb_Place.Size = new System.Drawing.Size(121, 20);
+            this.Tb_Place.TabIndex = 8;
+            // 
+            // Bt_Annuler
+            // 
+            this.Bt_Annuler.Location = new System.Drawing.Point(162, 303);
+            this.Bt_Annuler.Name = "Bt_Annuler";
+            this.Bt_Annuler.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Annuler.TabIndex = 9;
+            this.Bt_Annuler.Text = "Annuler";
+            this.Bt_Annuler.UseVisualStyleBackColor = true;
+            // 
+            // Bt_Modifier
+            // 
+            this.Bt_Modifier.Location = new System.Drawing.Point(296, 303);
+            this.Bt_Modifier.Name = "Bt_Modifier";
+            this.Bt_Modifier.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Modifier.TabIndex = 10;
+            this.Bt_Modifier.Text = "Modifier";
+            this.Bt_Modifier.UseVisualStyleBackColor = true;
             // 
             // Fm_Modif_Reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 390);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Bt_Modifier);
+            this.Controls.Add(this.Bt_Annuler);
+            this.Controls.Add(this.Tb_Place);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Cb_Etat);
+            this.Controls.Add(this.Cb_Vol);
+            this.Controls.Add(this.Cb_Client);
             this.Controls.Add(this.Lb_Etat);
             this.Controls.Add(this.Lb_Vol);
             this.Controls.Add(this.Lb_Client);
             this.Controls.Add(this.label1);
             this.Name = "Fm_Modif_Reservation";
             this.Text = "Fm_Modif_Reservation";
+            this.Load += new System.EventHandler(this.Fm_Modif_Reservation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,8 +169,12 @@
         private System.Windows.Forms.Label Lb_Client;
         private System.Windows.Forms.Label Lb_Vol;
         private System.Windows.Forms.Label Lb_Etat;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox Cb_Client;
+        private System.Windows.Forms.ComboBox Cb_Vol;
+        private System.Windows.Forms.ComboBox Cb_Etat;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Tb_Place;
+        private System.Windows.Forms.Button Bt_Annuler;
+        private System.Windows.Forms.Button Bt_Modifier;
     }
 }

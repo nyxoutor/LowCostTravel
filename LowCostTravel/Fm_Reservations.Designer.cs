@@ -35,15 +35,6 @@
             this.Bt_Vols = new System.Windows.Forms.Button();
             this.Lb_Reservations = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idvolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nom_client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prenom_client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Depart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Arrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etatreservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Bt_Debut = new System.Windows.Forms.Button();
             this.Bt_Precedent = new System.Windows.Forms.Button();
             this.Bt_Suivant = new System.Windows.Forms.Button();
@@ -51,6 +42,16 @@
             this.Bt_Supprimer = new System.Windows.Forms.Button();
             this.Bt_Ajout = new System.Windows.Forms.Button();
             this.Bt_Modifier = new System.Windows.Forms.Button();
+            this.id_clients = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nom_client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prenom_client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_vol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Depart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etatreservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -105,9 +106,10 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idvolsDataGridViewTextBoxColumn,
+            this.id_clients,
             this.Nom_client,
             this.Prenom_client,
+            this.id_vol,
             this.Depart,
             this.Arrivee,
             this.etatreservationDataGridViewTextBoxColumn,
@@ -115,65 +117,13 @@
             this.placereservationDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.reservationBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(76, 145);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(480, 189);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // idvolsDataGridViewTextBoxColumn
-            // 
-            this.idvolsDataGridViewTextBoxColumn.DataPropertyName = "id_vols";
-            this.idvolsDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idvolsDataGridViewTextBoxColumn.Name = "idvolsDataGridViewTextBoxColumn";
-            // 
-            // Nom_client
-            // 
-            this.Nom_client.DataPropertyName = "Nom_client";
-            this.Nom_client.HeaderText = "Nom Client";
-            this.Nom_client.Name = "Nom_client";
-            this.Nom_client.ReadOnly = true;
-            // 
-            // Prenom_client
-            // 
-            this.Prenom_client.DataPropertyName = "Prenom_client";
-            this.Prenom_client.HeaderText = "Prenom Client";
-            this.Prenom_client.Name = "Prenom_client";
-            this.Prenom_client.ReadOnly = true;
-            // 
-            // Depart
-            // 
-            this.Depart.DataPropertyName = "Depart";
-            this.Depart.HeaderText = "Depart";
-            this.Depart.Name = "Depart";
-            this.Depart.ReadOnly = true;
-            // 
-            // Arrivee
-            // 
-            this.Arrivee.DataPropertyName = "Arrivee";
-            this.Arrivee.HeaderText = "Arrivee";
-            this.Arrivee.Name = "Arrivee";
-            this.Arrivee.ReadOnly = true;
-            // 
-            // etatreservationDataGridViewTextBoxColumn
-            // 
-            this.etatreservationDataGridViewTextBoxColumn.DataPropertyName = "etat_reservation";
-            this.etatreservationDataGridViewTextBoxColumn.HeaderText = "Etat";
-            this.etatreservationDataGridViewTextBoxColumn.Name = "etatreservationDataGridViewTextBoxColumn";
-            // 
-            // datereservationDataGridViewTextBoxColumn
-            // 
-            this.datereservationDataGridViewTextBoxColumn.DataPropertyName = "date_reservation";
-            this.datereservationDataGridViewTextBoxColumn.HeaderText = "Date Réservation";
-            this.datereservationDataGridViewTextBoxColumn.Name = "datereservationDataGridViewTextBoxColumn";
-            // 
-            // placereservationDataGridViewTextBoxColumn
-            // 
-            this.placereservationDataGridViewTextBoxColumn.DataPropertyName = "place_reservation";
-            this.placereservationDataGridViewTextBoxColumn.HeaderText = "Places";
-            this.placereservationDataGridViewTextBoxColumn.Name = "placereservationDataGridViewTextBoxColumn";
-            // 
-            // reservationBindingSource
-            // 
-            this.reservationBindingSource.DataSource = typeof(LowCostTravel.reservation);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Bt_Debut
             // 
@@ -238,6 +188,74 @@
             this.Bt_Modifier.TabIndex = 12;
             this.Bt_Modifier.Text = "Modifier";
             this.Bt_Modifier.UseVisualStyleBackColor = true;
+            this.Bt_Modifier.Click += new System.EventHandler(this.Bt_Modifier_Click);
+            // 
+            // id_clients
+            // 
+            this.id_clients.DataPropertyName = "id_clients";
+            this.id_clients.HeaderText = "ID Client";
+            this.id_clients.Name = "id_clients";
+            this.id_clients.ReadOnly = true;
+            // 
+            // Nom_client
+            // 
+            this.Nom_client.DataPropertyName = "Nom_client";
+            this.Nom_client.HeaderText = "Nom Client";
+            this.Nom_client.Name = "Nom_client";
+            this.Nom_client.ReadOnly = true;
+            // 
+            // Prenom_client
+            // 
+            this.Prenom_client.DataPropertyName = "Prenom_client";
+            this.Prenom_client.HeaderText = "Prenom Client";
+            this.Prenom_client.Name = "Prenom_client";
+            this.Prenom_client.ReadOnly = true;
+            // 
+            // id_vol
+            // 
+            this.id_vol.DataPropertyName = "id_vols";
+            this.id_vol.HeaderText = "ID Vol";
+            this.id_vol.Name = "id_vol";
+            this.id_vol.ReadOnly = true;
+            // 
+            // Depart
+            // 
+            this.Depart.DataPropertyName = "Depart";
+            this.Depart.HeaderText = "Depart";
+            this.Depart.Name = "Depart";
+            this.Depart.ReadOnly = true;
+            // 
+            // Arrivee
+            // 
+            this.Arrivee.DataPropertyName = "Arrivee";
+            this.Arrivee.HeaderText = "Arrivee";
+            this.Arrivee.Name = "Arrivee";
+            this.Arrivee.ReadOnly = true;
+            // 
+            // etatreservationDataGridViewTextBoxColumn
+            // 
+            this.etatreservationDataGridViewTextBoxColumn.DataPropertyName = "etat_reservation";
+            this.etatreservationDataGridViewTextBoxColumn.HeaderText = "Etat";
+            this.etatreservationDataGridViewTextBoxColumn.Name = "etatreservationDataGridViewTextBoxColumn";
+            this.etatreservationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // datereservationDataGridViewTextBoxColumn
+            // 
+            this.datereservationDataGridViewTextBoxColumn.DataPropertyName = "date_reservation";
+            this.datereservationDataGridViewTextBoxColumn.HeaderText = "Date Réservation";
+            this.datereservationDataGridViewTextBoxColumn.Name = "datereservationDataGridViewTextBoxColumn";
+            this.datereservationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // placereservationDataGridViewTextBoxColumn
+            // 
+            this.placereservationDataGridViewTextBoxColumn.DataPropertyName = "place_reservation";
+            this.placereservationDataGridViewTextBoxColumn.HeaderText = "Places";
+            this.placereservationDataGridViewTextBoxColumn.Name = "placereservationDataGridViewTextBoxColumn";
+            this.placereservationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // reservationBindingSource
+            // 
+            this.reservationBindingSource.DataSource = typeof(LowCostTravel.reservation);
             // 
             // Fm_Reservations
             // 
@@ -283,9 +301,10 @@
         private System.Windows.Forms.Button Bt_Supprimer;
         private System.Windows.Forms.Button Bt_Ajout;
         private System.Windows.Forms.Button Bt_Modifier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idvolsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_clients;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom_client;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prenom_client;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_vol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Depart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arrivee;
         private System.Windows.Forms.DataGridViewTextBoxColumn etatreservationDataGridViewTextBoxColumn;
