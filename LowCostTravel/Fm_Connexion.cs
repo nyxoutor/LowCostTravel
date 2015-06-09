@@ -55,7 +55,7 @@ namespace LowCostTravel
                 {
                     MessageBox.Show("Mot de passe invalide !");
                 }
-                this.Hide();
+                //this.Hide();
             }
             catch (Exception ex)
             {

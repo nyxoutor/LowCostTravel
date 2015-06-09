@@ -103,7 +103,7 @@ namespace LowCostTravel
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 int index = dataGridView1.SelectedRows[0].Index;
-                if (index >= 0 && index < dataGridView1.Rows.Count)
+                if (index >= 0 && index < dataGridView1.Rows.Count-2)
                 {
                     dataGridView1.Rows[index + 1].Selected = true;
                     dataGridView1.CurrentCell = dataGridView1.Rows[index + 1].Cells[0];
@@ -115,6 +115,27 @@ namespace LowCostTravel
         private void Bt_Fin_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Bt_Aeroports_Click(object sender, EventArgs e)
+        {
+            Fm_Aeroports aero = new Fm_Aeroports(bd);
+            aero.Show();
+            this.Hide();
+        }
+
+        private void Bt_Clients_Click(object sender, EventArgs e)
+        {
+            Fm_Clients clients = new Fm_Clients(bd);
+            clients.Show();
+            this.Hide();
+        }
+
+        private void Bt_Vols_Click(object sender, EventArgs e)
+        {
+            Fm_Vols vols = new Fm_Vols(bd);
+            vols.Show();
+            this.Hide();
         }
 
         

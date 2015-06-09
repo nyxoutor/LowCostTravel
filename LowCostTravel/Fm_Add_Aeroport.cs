@@ -27,16 +27,23 @@ namespace LowCostTravel
 
         private void Bt_Ajouter_Click(object sender, EventArgs e)
         {
-            aeroports aero = new aeroports();
-            aero.ville_aero = Tb_Ville.Text;
-            bd.aeroports.Add(aero);
-            bd.SaveChanges();
-            this.Hide();
+            if (string.IsNullOrEmpty(Tb_Ville.Text))
+            {
+                MessageBox.Show("Veuillez remplir tout les champs");
+            }
+            else
+            {
+                aeroports aero = new aeroports();
+                aero.ville_aero = Tb_Ville.Text;
+                bd.aeroports.Add(aero);
+                bd.SaveChanges();
+                this.Hide();
+            }
         }
 
         private void Fm_Add_Aeroport_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

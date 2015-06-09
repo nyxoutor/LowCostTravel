@@ -32,37 +32,41 @@ namespace LowCostTravel
 
         private void Bt_Confirmer_Click(object sender, EventArgs e)
         {
-            employe employeAdd = new employe();
-            employeAdd.nom = Tb_Nom.Text;
-            employeAdd.prenom = Tb_Prenom.Text;
-            employeAdd.login = Tb_Login.Text;
-            using (MD5 md5Hash = MD5.Create()){
-                employeAdd.password = GetMd5Hash(md5Hash, Tb_Pass.Text);
-            }
-            try
+            if (string.IsNullOrEmpty(Tb_Nom.Text) || string.IsNullOrEmpty(Tb_Prenom.Text) || string.IsNullOrEmpty(Tb_Login.Text) || string.IsNullOrEmpty(Tb_Pass.Text))
             {
-                bd.employe.Add(employeAdd);
-                bd.SaveChanges();
+                MessageBox.Show("Veuillez remplir tout les champs");
+            }else{
+                employe employeAdd = new employe();
+                employeAdd.nom = Tb_Nom.Text;
+                employeAdd.prenom = Tb_Prenom.Text;
+                employeAdd.login = Tb_Login.Text;
+                using (MD5 md5Hash = MD5.Create()){
+                    employeAdd.password = GetMd5Hash(md5Hash, Tb_Pass.Text);
+                }
+                try
+                {
+                    bd.employe.Add(employeAdd);
+                    bd.SaveChanges();
+                }
+
+                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                {
+                    // Retrieve the error messages as a list of strings.
+                    var errorMessages = ex.EntityValidationErrors
+                            .SelectMany(x => x.ValidationErrors)
+                            .Select(x => x.ErrorMessage);
+
+                    // Join the list to a single string.
+                    var fullErrorMessage = string.Join("; ", errorMessages);
+
+                    // Combine the original exception message with the new one.
+                    var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                    // Throw a new DbEntityValidationException with the improved exception message.
+                    throw new Exception(exceptionMessage);
+                }
+                this.Close();
             }
-
-            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
-
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new Exception(exceptionMessage);
-            }
-            MessageBox.Show("GG WP !");
-            this.Close();
             
         }
 

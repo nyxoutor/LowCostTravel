@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.Lb_Aeroports = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idaeroDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.villeaeroDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bs = new System.Windows.Forms.BindingSource(this.components);
             this.Lb_Choix = new System.Windows.Forms.Label();
             this.Btn_Clients = new System.Windows.Forms.Button();
             this.Btn_Reservations = new System.Windows.Forms.Button();
@@ -44,9 +47,6 @@
             this.Btn_Modifier = new System.Windows.Forms.Button();
             this.idaeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.villeaeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bs = new System.Windows.Forms.BindingSource(this.components);
-            this.idaeroDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.villeaeroDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Bs)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +77,24 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // idaeroDataGridViewTextBoxColumn1
+            // 
+            this.idaeroDataGridViewTextBoxColumn1.DataPropertyName = "id_aero";
+            this.idaeroDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.idaeroDataGridViewTextBoxColumn1.Name = "idaeroDataGridViewTextBoxColumn1";
+            this.idaeroDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // villeaeroDataGridViewTextBoxColumn1
+            // 
+            this.villeaeroDataGridViewTextBoxColumn1.DataPropertyName = "ville_aero";
+            this.villeaeroDataGridViewTextBoxColumn1.HeaderText = "Ville";
+            this.villeaeroDataGridViewTextBoxColumn1.Name = "villeaeroDataGridViewTextBoxColumn1";
+            this.villeaeroDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Bs
+            // 
+            this.Bs.DataSource = typeof(LowCostTravel.aeroports);
+            // 
             // Lb_Choix
             // 
             this.Lb_Choix.AutoSize = true;
@@ -104,6 +122,7 @@
             this.Btn_Reservations.TabIndex = 5;
             this.Btn_Reservations.Text = "Réservations";
             this.Btn_Reservations.UseVisualStyleBackColor = true;
+            this.Btn_Reservations.Click += new System.EventHandler(this.Btn_Reservations_Click);
             // 
             // Btn_Vols
             // 
@@ -198,24 +217,6 @@
             this.villeaeroDataGridViewTextBoxColumn.HeaderText = "Ville";
             this.villeaeroDataGridViewTextBoxColumn.Name = "villeaeroDataGridViewTextBoxColumn";
             this.villeaeroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Bs
-            // 
-            this.Bs.DataSource = typeof(LowCostTravel.aeroports);
-            // 
-            // idaeroDataGridViewTextBoxColumn1
-            // 
-            this.idaeroDataGridViewTextBoxColumn1.DataPropertyName = "id_aero";
-            this.idaeroDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.idaeroDataGridViewTextBoxColumn1.Name = "idaeroDataGridViewTextBoxColumn1";
-            this.idaeroDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // villeaeroDataGridViewTextBoxColumn1
-            // 
-            this.villeaeroDataGridViewTextBoxColumn1.DataPropertyName = "ville_aero";
-            this.villeaeroDataGridViewTextBoxColumn1.HeaderText = "Ville";
-            this.villeaeroDataGridViewTextBoxColumn1.Name = "villeaeroDataGridViewTextBoxColumn1";
-            this.villeaeroDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Fm_Aeroports
             // 

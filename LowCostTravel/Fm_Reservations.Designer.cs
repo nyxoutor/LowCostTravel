@@ -41,9 +41,6 @@
             this.id_vol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Depart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Arrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etatreservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placereservationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Bt_Debut = new System.Windows.Forms.Button();
             this.Bt_Precedent = new System.Windows.Forms.Button();
@@ -73,6 +70,7 @@
             this.Bt_Aeroports.TabIndex = 1;
             this.Bt_Aeroports.Text = "Aéroports";
             this.Bt_Aeroports.UseVisualStyleBackColor = true;
+            this.Bt_Aeroports.Click += new System.EventHandler(this.Bt_Aeroports_Click);
             // 
             // Bt_Clients
             // 
@@ -82,6 +80,7 @@
             this.Bt_Clients.TabIndex = 2;
             this.Bt_Clients.Text = "Clients";
             this.Bt_Clients.UseVisualStyleBackColor = true;
+            this.Bt_Clients.Click += new System.EventHandler(this.Bt_Clients_Click);
             // 
             // Bt_Vols
             // 
@@ -91,6 +90,7 @@
             this.Bt_Vols.TabIndex = 3;
             this.Bt_Vols.Text = "Vols";
             this.Bt_Vols.UseVisualStyleBackColor = true;
+            this.Bt_Vols.Click += new System.EventHandler(this.Bt_Vols_Click);
             // 
             // Lb_Reservations
             // 
@@ -111,10 +111,7 @@
             this.Prenom_client,
             this.id_vol,
             this.Depart,
-            this.Arrivee,
-            this.etatreservationDataGridViewTextBoxColumn,
-            this.datereservationDataGridViewTextBoxColumn,
-            this.placereservationDataGridViewTextBoxColumn});
+            this.Arrivee});
             this.dataGridView1.DataSource = this.reservationBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(76, 145);
             this.dataGridView1.MultiSelect = false;
@@ -166,31 +163,6 @@
             this.Arrivee.HeaderText = "Arrivee";
             this.Arrivee.Name = "Arrivee";
             this.Arrivee.ReadOnly = true;
-            // 
-            // etatreservationDataGridViewTextBoxColumn
-            // 
-            this.etatreservationDataGridViewTextBoxColumn.DataPropertyName = "etat_reservation";
-            this.etatreservationDataGridViewTextBoxColumn.HeaderText = "Etat";
-            this.etatreservationDataGridViewTextBoxColumn.Name = "etatreservationDataGridViewTextBoxColumn";
-            this.etatreservationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // datereservationDataGridViewTextBoxColumn
-            // 
-            this.datereservationDataGridViewTextBoxColumn.DataPropertyName = "date_reservation";
-            this.datereservationDataGridViewTextBoxColumn.HeaderText = "Date Réservation";
-            this.datereservationDataGridViewTextBoxColumn.Name = "datereservationDataGridViewTextBoxColumn";
-            this.datereservationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // placereservationDataGridViewTextBoxColumn
-            // 
-            this.placereservationDataGridViewTextBoxColumn.DataPropertyName = "place_reservation";
-            this.placereservationDataGridViewTextBoxColumn.HeaderText = "Places";
-            this.placereservationDataGridViewTextBoxColumn.Name = "placereservationDataGridViewTextBoxColumn";
-            this.placereservationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // reservationBindingSource
-            // 
-            this.reservationBindingSource.DataSource = typeof(LowCostTravel.reservation);
             // 
             // Bt_Debut
             // 

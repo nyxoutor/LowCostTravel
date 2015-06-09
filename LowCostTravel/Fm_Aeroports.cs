@@ -61,7 +61,7 @@ namespace LowCostTravel
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 int index = dataGridView1.SelectedRows[0].Index;
-                if (index >= 0 && index < dataGridView1.Rows.Count)
+                if (index >= 0 && index < dataGridView1.Rows.Count-2)
                 {
                     dataGridView1.Rows[index + 1].Selected = true;
                     dataGridView1.CurrentCell = dataGridView1.Rows[index + 1].Cells[0];
@@ -113,6 +113,13 @@ namespace LowCostTravel
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Btn_Reservations_Click(object sender, EventArgs e)
+        {
+            Fm_Reservations resas = new Fm_Reservations(bd);
+            resas.Show();
+            this.Hide();
         }
     }
 }

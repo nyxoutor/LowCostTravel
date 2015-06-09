@@ -31,11 +31,18 @@ namespace LowCostTravel
 
         private void Bt_Modifier_Click(object sender, EventArgs e)
         {
-            aeroModifier.ville_aero = Tb_Ville.Text;
-            //aeroports fly = bd.aeroports.Find(aeroModifier.id_aero);
-            bd.Entry(aeroModifier).State = EntityState.Modified;
-            bd.SaveChanges();
-            this.Hide();
+            if (string.IsNullOrEmpty(Tb_Ville.Text))
+            {
+                MessageBox.Show("Veuillez remplir tout les champs");
+            }
+            else
+            {
+                aeroModifier.ville_aero = Tb_Ville.Text;
+                //aeroports fly = bd.aeroports.Find(aeroModifier.id_aero);
+                bd.Entry(aeroModifier).State = EntityState.Modified;
+                bd.SaveChanges();
+                this.Hide();
+            }
         }
 
         private void Fm_Modif_Aeroport_Load(object sender, EventArgs e)

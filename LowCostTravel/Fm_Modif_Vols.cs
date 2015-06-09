@@ -49,17 +49,24 @@ namespace LowCostTravel
 
         private void Bt_Modifier_Click(object sender, EventArgs e)
         {
-            volModif.depart_vols = Convert.ToDateTime(dateTimePicker1.Text);
-            volModif.arrivee_vols = Convert.ToDateTime(dateTimePicker2.Text);
-            volModif.id_aero_depart = Convert.ToInt32(Cb_Depart.SelectedValue);
-            volModif.id_aero_arriver = Convert.ToInt32(Cb_Arrivee.SelectedValue);
-            volModif.prix_vols = Convert.ToInt32(Tb_Prix.Text);
-            volModif.places_vols = Convert.ToInt32(Tb_Places.Text);
-            volModif.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);
-            bd.Entry(volModif).State = EntityState.Modified;
-            bd.SaveChanges();
-            
-            this.Hide();
+            if (string.IsNullOrEmpty(dateTimePicker1.Text) || string.IsNullOrEmpty(dateTimePicker2.Text) || string.IsNullOrEmpty(Tb_Prix.Text) || string.IsNullOrEmpty(Tb_Places.Text))
+            {
+                MessageBox.Show("Veuillez remplir tout les champs.");
+            }
+            else
+            {
+                volModif.depart_vols = Convert.ToDateTime(dateTimePicker1.Text);
+                volModif.arrivee_vols = Convert.ToDateTime(dateTimePicker2.Text);
+                volModif.id_aero_depart = Convert.ToInt32(Cb_Depart.SelectedValue);
+                volModif.id_aero_arriver = Convert.ToInt32(Cb_Arrivee.SelectedValue);
+                volModif.prix_vols = Convert.ToInt32(Tb_Prix.Text);
+                volModif.places_vols = Convert.ToInt32(Tb_Places.Text);
+                volModif.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);
+                bd.Entry(volModif).State = EntityState.Modified;
+                bd.SaveChanges();
+
+                this.Hide();
+            }
 
         }
     }

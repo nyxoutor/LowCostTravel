@@ -40,17 +40,24 @@ namespace LowCostTravel
 
         private void Btn_Ajouter_Click(object sender, EventArgs e)
         {
-            vols vol = new vols();
-            vol.depart_vols = Convert.ToDateTime(dateTimePicker1.Text);
-            vol.arrivee_vols = Convert.ToDateTime(dateTimePicker2.Text);
-            vol.id_aero_depart = Convert.ToInt32(Cb_Depart.SelectedValue);
-            vol.id_aero_arriver = Convert.ToInt32(Cb_arrivee.SelectedValue);
-            vol.prix_vols = Convert.ToInt32(Tb_Prix.Text);
-            vol.places_vols = Convert.ToInt32(Tb_Places.Text);
-            vol.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);
-            bd.vols.Add(vol);
-            bd.SaveChanges();
-            this.Hide();
+            if (string.IsNullOrEmpty(dateTimePicker1.Text) || string.IsNullOrEmpty(dateTimePicker2.Text) || string.IsNullOrEmpty(Tb_Prix.Text) || string.IsNullOrEmpty(Tb_Places.Text))
+            {
+                MessageBox.Show("Veuillez remplir tout les champs.");
+            }
+            else
+            {
+                vols vol = new vols();
+                vol.depart_vols = Convert.ToDateTime(dateTimePicker1.Text);
+                vol.arrivee_vols = Convert.ToDateTime(dateTimePicker2.Text);
+                vol.id_aero_depart = Convert.ToInt32(Cb_Depart.SelectedValue);
+                vol.id_aero_arriver = Convert.ToInt32(Cb_arrivee.SelectedValue);
+                vol.prix_vols = Convert.ToInt32(Tb_Prix.Text);
+                vol.places_vols = Convert.ToInt32(Tb_Places.Text);
+                vol.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);
+                bd.vols.Add(vol);
+                bd.SaveChanges();
+                this.Hide();
+            }
         }
     }
 }

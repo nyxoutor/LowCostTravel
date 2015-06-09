@@ -59,12 +59,27 @@ namespace LowCostTravel
 
         private void Bt_Modifier_Click(object sender, EventArgs e)
         {
-            
-            resaModif.etat_reservation = Convert.ToString(Cb_Etat.SelectedItem);
-            resaModif.place_reservation = Convert.ToInt32(Tb_Place.Text);
-            bd.Entry(resaModif).State = EntityState.Modified;
-            bd.SaveChanges();
-            this.Hide();
+            if (string.IsNullOrEmpty(Tb_Place.Text))
+            {
+                MessageBox.Show("Veuillez remplir tout les champs.");
+            }
+            else
+            {
+                resaModif.etat_reservation = Convert.ToString(Cb_Etat.SelectedItem);
+                resaModif.place_reservation = Convert.ToInt32(Tb_Place.Text);
+                bd.Entry(resaModif).State = EntityState.Modified;
+
+                vols vol = resaModif.vols;
+                if (vol.places_dispo_vols < resaModif.place_reservation)
+                {
+                    MessageBox.Show("Pas assez de places disponibles sur ce vol.");
+                }
+                else
+                {
+                    bd.SaveChanges();
+                    this.Hide();
+                }
+            }
         }
     }
 }
