@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace LowCostTravel
 {
@@ -60,10 +62,32 @@ namespace LowCostTravel
                 volModif.id_aero_depart = Convert.ToInt32(Cb_Depart.SelectedValue);
                 volModif.id_aero_arriver = Convert.ToInt32(Cb_Arrivee.SelectedValue);
                 volModif.prix_vols = Convert.ToInt32(Tb_Prix.Text);
+                
+
+                int places = Convert.ToInt32(Tb_Places.Text);
+                int diff = volModif.places_vols - places;
+
+
                 volModif.places_vols = Convert.ToInt32(Tb_Places.Text);
-                volModif.places_dispo_vols = Convert.ToInt32(Tb_Places.Text);
                 bd.Entry(volModif).State = EntityState.Modified;
                 bd.SaveChanges();
+
+
+                MySqlConnection con = new MySqlConnection();
+                con.ConnectionString = "server=mysql.montpellier.epsi.fr;user id=tony.roux;password=epsi123CBY;allowuservariables=True;allowzerodatetime=True;port=5206;persistsecurityinfo=True;database=LowCostTravel";
+                MySqlCommand cmd = new MySqlCommand();
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "egalise_place";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("idVolAdd", MySqlDbType.Int32).Value = volModif.id_vols;
+                cmd.Parameters.Add("placesAdd", MySqlDbType.Int32).Value = diff;
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                System.Data.Objects.ObjectContext context = ((System.Data.Entity.Infrastructure.IObjectContextAdapter)bd).ObjectContext;
+                context.Refresh(System.Data.Objects.RefreshMode.StoreWins, bd.vols);
 
                 this.Hide();
             }
@@ -71,3 +95,4 @@ namespace LowCostTravel
         }
     }
 }
+
