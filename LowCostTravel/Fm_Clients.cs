@@ -49,7 +49,7 @@ namespace LowCostTravel
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 int index = dataGridView1.SelectedRows[0].Index;
-                if (index >= 0 && index < dataGridView1.Rows.Count-2)
+                if (index >= 0 && index < dataGridView1.Rows.Count-1)
                 {
                     dataGridView1.Rows[index + 1].Selected = true;
                     dataGridView1.CurrentCell = dataGridView1.Rows[index + 1].Cells[0];
@@ -61,7 +61,7 @@ namespace LowCostTravel
         private void Bt_Fin_Click(object sender, EventArgs e)
         {
             int index = dataGridView1.Rows.Count;
-            dataGridView1.Rows[index - 1].Selected = true;
+            dataGridView1.Rows[index -1].Selected = true;
             dataGridView1.CurrentCell = dataGridView1.Rows[index-1].Cells[0];
         }
 
@@ -80,10 +80,16 @@ namespace LowCostTravel
         private void Bt_Supprimer_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt16(dataGridView1.CurrentRow.Cells[0].Value);
-            clients clientToDelete = bd.clients.Find(id);
-            bd.clients.Remove(clientToDelete);
-            bd.SaveChanges();
-
+            try
+            {
+                clients clientToDelete = bd.clients.Find(id);
+                bd.clients.Remove(clientToDelete);
+                bd.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Impossible de supprimer ce client car il possède des réservations.");
+            }
 
             clientsBindingSource.DataSource = bd.clients.ToList();
         }

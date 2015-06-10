@@ -23,8 +23,8 @@ namespace LowCostTravel
         private void button4_Click(object sender, EventArgs e)
         {
             int index = dataGridView1.Rows.Count;
-            dataGridView1.Rows[index - 2].Selected = true;
-            dataGridView1.CurrentCell = dataGridView1.Rows[index-2].Cells[0];
+            dataGridView1.Rows[index - 1].Selected = true;
+            dataGridView1.CurrentCell = dataGridView1.Rows[index-1].Cells[0];
         }
 
         private void Fm_Vols_Load(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace LowCostTravel
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 int index = dataGridView1.SelectedRows[0].Index;
-                if (index >= 0 && index < dataGridView1.Rows.Count-2)
+                if (index >= 0 && index < dataGridView1.Rows.Count-1)
                 {
                     dataGridView1.Rows[index + 1].Selected = true;
                     dataGridView1.CurrentCell = dataGridView1.Rows[index + 1].Cells[0];
@@ -73,10 +73,16 @@ namespace LowCostTravel
         private void Btn_Supprimer_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt16(dataGridView1.CurrentRow.Cells[0].Value);
-            vols volToDelete = bd.vols.Find(id);
-            bd.vols.Remove(volToDelete);
-            bd.SaveChanges();
-
+            try
+            {
+                vols volToDelete = bd.vols.Find(id);
+                bd.vols.Remove(volToDelete);
+                bd.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de supprimer ce vol car il existe des réservations sur ce vol.");
+            }
 
             volsBindingSource.DataSource = bd.vols.ToList();
         }

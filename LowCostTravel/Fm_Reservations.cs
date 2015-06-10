@@ -43,13 +43,14 @@ namespace LowCostTravel
             try
             {
                  resa = bd.reservation.Where(r => r.id_clients == id && r.id_vols == id2 && r.date_reservation.Equals(date)).Single();
+                 Fm_Modif_Reservation resaModifier = new Fm_Modif_Reservation(bd, resa);
+                 resaModifier.ShowDialog();
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show("Veuillez sélectionner une réservation à modifier.");
             }
-            Fm_Modif_Reservation resaModifier = new Fm_Modif_Reservation(bd, resa);
-            resaModifier.ShowDialog();
+            
             reservationBindingSource.DataSource = bd.reservation.ToList();
         }
 
@@ -103,7 +104,7 @@ namespace LowCostTravel
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 int index = dataGridView1.SelectedRows[0].Index;
-                if (index >= 0 && index < dataGridView1.Rows.Count-2)
+                if (index >= 0 && index < dataGridView1.Rows.Count-1)
                 {
                     dataGridView1.Rows[index + 1].Selected = true;
                     dataGridView1.CurrentCell = dataGridView1.Rows[index + 1].Cells[0];
@@ -114,7 +115,9 @@ namespace LowCostTravel
 
         private void Bt_Fin_Click(object sender, EventArgs e)
         {
-
+            int index = dataGridView1.Rows.Count;
+            dataGridView1.Rows[index - 1].Selected = true;
+            dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0];
         }
 
         private void Bt_Aeroports_Click(object sender, EventArgs e)
