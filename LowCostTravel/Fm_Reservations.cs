@@ -34,9 +34,9 @@ namespace LowCostTravel
 
         private void Bt_Modifier_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            int id2 = Convert.ToInt32(dataGridView1.CurrentRow.Cells[3].Value);
-            DateTime date = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value);
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[2].Value);
+            int id2 = Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value);
+            DateTime date = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[0].Value);
             //reservation resaModif = bd.reservation.Find(id, id2, date);
             reservation resa = new reservation();
 
