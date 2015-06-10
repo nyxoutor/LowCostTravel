@@ -152,7 +152,7 @@
             this.Controls.Add(this.Lb_nom);
             this.Controls.Add(this.Lb_New_Emp);
             this.Name = "Fm_Add_Employe";
-            this.Text = "Fm_Add_Employe";
+            this.Text = "Création d\'un nouvel employé";
             this.Load += new System.EventHandler(this.Fm_Add_Employe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

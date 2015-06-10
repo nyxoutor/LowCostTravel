@@ -67,6 +67,12 @@
     <Compile Include="Fm_Add_Aeroport.Designer.cs">
       <DependentUpon>Fm_Add_Aeroport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fm_Add_Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_Add_Clients.Designer.cs">
+      <DependentUpon>Fm_Add_Clients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fm_Add_Employe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="Fm_Connexion.Designer.cs">
       <DependentUpon>Fm_Connexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fm_Modif_Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_Modif_Clients.Designer.cs">
+      <DependentUpon>Fm_Modif_Clients.cs</DependentUpon>
     </Compile>
     <Compile Include="Fm_Modif_Reservation.cs">
       <SubType>Form</SubType>
@@ -165,6 +177,9 @@
     <EmbeddedResource Include="Fm_Add_Aeroport.resx">
       <DependentUpon>Fm_Add_Aeroport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fm_Add_Clients.resx">
+      <DependentUpon>Fm_Add_Clients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fm_Add_Employe.resx">
       <DependentUpon>Fm_Add_Employe.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Connexion.resx">
       <DependentUpon>Fm_Connexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fm_Modif_Clients.resx">
+      <DependentUpon>Fm_Modif_Clients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fm_Modif_Reservation.resx">
       <DependentUpon>Fm_Modif_Reservation.cs</DependentUpon>

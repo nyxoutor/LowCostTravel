@@ -163,7 +163,7 @@
             this.Controls.Add(this.Lb_Client);
             this.Controls.Add(this.label1);
             this.Name = "Fm_Modif_Reservation";
-            this.Text = "Fm_Modif_Reservation";
+            this.Text = "Modification d\'une réservation";
             this.Load += new System.EventHandler(this.Fm_Modif_Reservation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -123,7 +123,7 @@
             this.Controls.Add(Lb_IdAero);
             this.Controls.Add(this.Tb_Id);
             this.Name = "Fm_Modif_Aeroport";
-            this.Text = "Fm_Modif_Aeroport";
+            this.Text = "Modification d\'un aéroport";
             this.Load += new System.EventHandler(this.Fm_Modif_Aeroport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.aeroportsBindingSource)).EndInit();
             this.ResumeLayout(false);

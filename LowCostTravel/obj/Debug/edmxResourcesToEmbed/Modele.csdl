@@ -20,8 +20,8 @@
     <Property Name="cp_clients" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="ville_clients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tel_clients" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="mail_clients" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password_clients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail_clients" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password_clients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="token_clients" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="reservation" Relationship="Self.reservation_ibfk_4" FromRole="clients" ToRole="reservation" />
   </EntityType>
@@ -113,7 +113,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SoldVolEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="SoldVolEntity" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="aeroports" EntityType="Self.aeroports" />
     <EntitySet Name="clients" EntityType="Self.clients" />
     <EntitySet Name="employe" EntityType="Self.employe" />

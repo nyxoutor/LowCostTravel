@@ -12,8 +12,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Clients : Form
     {
-        private SoldVolEntities bd;
-        public Fm_Clients(SoldVolEntities p_bd)
+        private SoldVolEntity bd;
+        public Fm_Clients(SoldVolEntity p_bd)
         {
             InitializeComponent();
             bd = p_bd;
@@ -74,7 +74,7 @@ namespace LowCostTravel
 
         private void Fm_Clients_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Bt_Supprimer_Click(object sender, EventArgs e)
@@ -100,6 +100,22 @@ namespace LowCostTravel
             Fm_Vols vols = new Fm_Vols(bd);
             vols.Show();
             this.Hide();
+        }
+
+        private void Bt_Ajouter_Click(object sender, EventArgs e)
+        {
+            Fm_Add_Clients addClient = new Fm_Add_Clients(bd);
+            addClient.ShowDialog();
+            clientsBindingSource.DataSource = bd.clients.ToList();
+        }
+
+        private void Bt_Modifier_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt16(dataGridView1.CurrentRow.Cells[0].Value);
+            clients clientModif = bd.clients.Find(id);
+            Fm_Modif_Clients clientModifier = new Fm_Modif_Clients(bd, clientModif);
+            clientModifier.ShowDialog();
+            clientsBindingSource.DataSource = bd.clients.ToList();
         }
     }
 }

@@ -199,7 +199,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.Lb_New_Vol);
             this.Name = "Fm_Add_Vols";
-            this.Text = "Fm_Add_Vols";
+            this.Text = "Ajout d\'un vol";
             this.Load += new System.EventHandler(this.Fm_Add_Vols_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

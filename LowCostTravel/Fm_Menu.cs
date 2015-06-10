@@ -12,11 +12,11 @@ namespace LowCostTravel
 {
     public partial class Fm_Menu : Form
     {
-        private SoldVolEntities bd;
+        private SoldVolEntity bd;
         public Fm_Menu()
         {
             InitializeComponent();
-            bd = new SoldVolEntities();
+            bd = new SoldVolEntity();
         }
 
         private void Btn_Aeroports_Click(object sender, EventArgs e)

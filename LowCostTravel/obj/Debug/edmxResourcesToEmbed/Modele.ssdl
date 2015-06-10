@@ -18,8 +18,8 @@
     <Property Name="cp_clients" Type="varchar" MaxLength="5" />
     <Property Name="ville_clients" Type="varchar" MaxLength="50" />
     <Property Name="tel_clients" Type="varchar" MaxLength="20" />
-    <Property Name="mail_clients" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="password_clients" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mail_clients" Type="varchar" MaxLength="100" />
+    <Property Name="password_clients" Type="varchar" MaxLength="50" />
     <Property Name="token_clients" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="employe">

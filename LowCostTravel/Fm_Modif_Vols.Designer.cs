@@ -197,7 +197,7 @@
             this.Controls.Add(this.Lb_Date_Depart);
             this.Controls.Add(this.Lb_Modif_Vol);
             this.Name = "Fm_Modif__Vols";
-            this.Text = "Fm_Modif__Vols";
+            this.Text = "Modification d\'un vol";
             this.Load += new System.EventHandler(this.Fm_Modif__Vols_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

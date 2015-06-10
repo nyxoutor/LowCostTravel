@@ -133,7 +133,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Fm_Add_Reservation";
-            this.Text = "Fm_Add_Reservation";
+            this.Text = "Ajout d\'un réservation";
             this.Load += new System.EventHandler(this.Fm_Add_Reservation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

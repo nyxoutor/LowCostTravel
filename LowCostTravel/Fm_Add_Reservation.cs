@@ -12,8 +12,8 @@ namespace LowCostTravel
 {
     public partial class Fm_Add_Reservation : Form
     {
-        private SoldVolEntities bd;
-        public Fm_Add_Reservation(SoldVolEntities p_bd)
+        private SoldVolEntity bd;
+        public Fm_Add_Reservation(SoldVolEntity p_bd)
         {
             InitializeComponent();
             bd = p_bd;

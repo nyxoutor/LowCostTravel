@@ -15,11 +15,11 @@ namespace LowCostTravel
     {
         public string Login { get; set; }
         public string Password { get; set; }
-        private SoldVolEntities bd;
+        private SoldVolEntity bd;
         public Fm_Connexion()
         {
             InitializeComponent();
-            bd = new SoldVolEntities();
+            bd = new SoldVolEntity();
         }
 
         private void button1_Click(object sender, EventArgs e)

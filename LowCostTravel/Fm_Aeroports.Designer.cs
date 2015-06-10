@@ -237,7 +237,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Lb_Aeroports);
             this.Name = "Fm_Aeroports";
-            this.Text = "Fm_Aeroports";
+            this.Text = "Liste des aéroports";
             this.Load += new System.EventHandler(this.Fm_Aeroports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Bs)).EndInit();

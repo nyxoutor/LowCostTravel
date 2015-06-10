@@ -91,7 +91,7 @@
             this.Controls.Add(this.Lb_Ville);
             this.Controls.Add(this.Lb_Aero);
             this.Name = "Fm_Add_Aeroport";
-            this.Text = "Fm_Add_Aeroport";
+            this.Text = "Ajout d\'un aéroport";
             this.Load += new System.EventHandler(this.Fm_Add_Aeroport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

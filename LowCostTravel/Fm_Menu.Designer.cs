@@ -95,7 +95,7 @@
             this.Controls.Add(this.Btn_Aeroports);
             this.Controls.Add(this.label1);
             this.Name = "Fm_Menu";
-            this.Text = "Fm_Menu";
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.Fm_Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

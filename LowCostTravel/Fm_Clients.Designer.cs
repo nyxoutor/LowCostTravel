@@ -254,6 +254,7 @@
             this.Bt_Ajouter.TabIndex = 12;
             this.Bt_Ajouter.Text = "+";
             this.Bt_Ajouter.UseVisualStyleBackColor = true;
+            this.Bt_Ajouter.Click += new System.EventHandler(this.Bt_Ajouter_Click);
             // 
             // Bt_Modifier
             // 
@@ -263,6 +264,7 @@
             this.Bt_Modifier.TabIndex = 13;
             this.Bt_Modifier.Text = "Modifier";
             this.Bt_Modifier.UseVisualStyleBackColor = true;
+            this.Bt_Modifier.Click += new System.EventHandler(this.Bt_Modifier_Click);
             // 
             // idclientsDataGridViewTextBoxColumn
             // 
@@ -360,7 +362,7 @@
             this.Controls.Add(this.Bt_Aeroports);
             this.Controls.Add(this.Lb_Choix);
             this.Name = "Fm_Clients";
-            this.Text = "Fm_Clients";
+            this.Text = "Liste des clients";
             this.Load += new System.EventHandler(this.Fm_Clients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();

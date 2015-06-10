@@ -112,7 +112,7 @@
             this.Controls.Add(this.Lb_Login);
             this.Controls.Add(this.Lb_Connexion);
             this.Name = "Fm_Connexion";
-            this.Text = "Form1";
+            this.Text = "Connexion";
             this.Load += new System.EventHandler(this.Fm_Connexion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
